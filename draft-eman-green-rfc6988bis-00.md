@@ -88,10 +88,16 @@ informative:
 
    Section 3 elaborates on a set of general needs for Energy Management.
    Requirements for an Energy Management standard are specified in
-   Sections 4 through 6.
+   Sections 4 through 8.
 
    Sections 4 through 6 contain conventional requirements specifying
    information on entities and control functions.
+
+   Sections 7 and 8 contain requirements specific to Energy Management.
+   Due to the nature of power supply, some monitoring and control
+   functions are not conducted by interacting with the entity of
+   interest but rather with other entities, for example, entities
+   upstream in a power distribution tree.
 
 ## Conventional Requirements for Energy Efficiency Management
 
@@ -107,6 +113,42 @@ informative:
    specific information on Power States, Power Inlets, Power Outlets,
    power, energy.  The control of Power State and power saving functionalities,
   optimization functionalities by entities is covered by requirements specified in Section 6.
+
+## Specific Requirements for Energy Management
+
+   While the conventional requirements summarized above seem to be all
+   that would be needed for Energy Management, there are significant
+   differences between Energy Management and most well-known network
+   management functions.  The most significant difference is the need
+   for some devices to report on other entities.  There are three major
+   reasons for this.
+
+   o  For monitoring a particular entity, it is not always sufficient to
+      communicate only with that entity.  When the entity has no
+      instrumentation for determining power, it might still be possible
+      to obtain power values for the entity via communication with other
+      entities in its power distribution tree.  A simple example of this
+      would be the retrieval of power values from a power meter at the
+      power line into the entity.  A Power Distribution Unit (PDU) and a
+      Power over Ethernet (PoE) switch are common examples.  Both supply
+      power to other entities at sockets or ports, respectively, and are
+      often instrumented to measure power per socket or port.
+
+   o  Similar considerations apply to controlling the power supply of an
+      entity that often needs direct or indirect communications with
+      another entity upstream in the power distribution tree.  Again, a
+      PDU and a PoE switch are common examples, if they have the
+      capability to switch power on or off at their sockets or ports,
+      respectively.
+
+   These specific issues of Energy Management, as well as other issues,
+   are covered by requirements specified in Sections 7 and 8.
+
+   The requirements in these sections need a new Energy Management
+   framework that deals with the specific nature of Energy Management.
+   The actual standards documents, such as MIB module specifications,
+   address conformance by specifying which features must, should, or may
+   be implemented by compliant implementations.
 
 # Terminology
 
@@ -138,29 +180,35 @@ informative:
       respect to a reference or technical value and are independent of
       any usage context.
 
-   Energy Efficiency Management
+   Energy Management
 
-      Energy Efficiency Management is a set of functions for measuring, modeling,
+      Energy Management is a set of functions for measuring, modeling,
       planning, and optimizing networks to ensure that the network
       elements use energy efficiently and in a
       manner appropriate to the nature of the application and the cost
       constraints of the organization [ITU-M.3400].
 
-   Energy Efficiency Management System
+   Energy Efficiency Management
+   
+     Involves deploying and managing network infrastructures with the
+     goal of optimizing energy use on network devices while improving
+     the overall network utilization.
 
-      An Energy Efficiency Management System is a combination of hardware and
+   Energy Management System
+
+      An Energy Management System is a combination of hardware and
       software used to administer a network with the primary purpose
-      being Energy Efficiency Management.
+      being Energy Management.
 
-   Energy Efficiency Monitoring
+   Energy Monitoring
 
-      Energy Efficiency  Monitoring is a part of Energy Efficiency Management that deals with
+      Energy Monitoring is a part of Energy Efficiency Management that deals with
       collecting or reading information from network elements and their components to aid in
       Energy Efficiency Management.
 
-   Energy Efficiency Control
+   Energy Control
 
-      Energy Efficiency Control is a part of Energy Efficiency Management that deals with
+      Energy Control is a part of Energy Management that deals with
       controlling energy supply and Power State of network elements, as
       well as  their components.
 
@@ -186,7 +234,7 @@ informative:
       characterizes its capabilities, power consumption, and
       responsiveness to input [IEEE-1621].
 
-# General Considerations Related to Energy Efficiency Management
+# General Considerations Related to Energy Management
 
    The basic objective of Energy Efficiency Management is to operate sets of
    network devices using minimal energy, while maintaining a certain level of
@@ -196,26 +244,30 @@ informative:
 
    Entities can be set to an operational state that results in the
    lowest power level that still meets the service-level performance
-   objectives.  In principle, there are four basic types of Power
+   objectives.  In principle, there are three basic types of Power
    States for an entity or for a whole system:
 
    o  full Power State
 
    o  sleep state (not functional but immediately available)
 
-   o  standby state (partially functional and immediately available)
-
    o  off state (may require significant time to become operational)
 
    In specific network devices, the number of Power States and their properties
    vary considerably.  Simple entities may only have the extreme states:
-   full Power State and off state.  Many network devices have four basic Power
-   States: on, off, standby and sleep.  However, more finely grained Power
-   States can be implemented.  Examples are various operational low
-   Power States in which a network device requires less energy than in the full
+   full Power State and off state.  Many network devices have three basic Power
+   States: on, off, and sleep.  However, more finely grained Power
+   States can be implemented, especially when Energy efficiency gains for communication
+   systems are highly sought after, for environmental, business, and technical reasons.
+   Examples are various operational low Power States in which a network device requires less energy than in the full
    power "on" state, but -- compared to the sleep state -- is still
-   operational with reduced performance or functionality.
-
+   operational with reduced performance or functionality. 
+   
+   Another example is standby power state
+   in which network device has multiple standby components and one active component for the same functionality,
+   standby components are partially functional and can be immediately available when active component is down.
+   The standby power state can be introduced to save energy while impove the overall network utilization.
+   
 ## Saving Energy versus Maintaining Service Level
 
    One of the objectives of Energy Efficiency Management is to reduce energy
@@ -280,17 +332,33 @@ informative:
 
    o  choosing the time of the next maintenance cycle for an entity
 
-## Overview of Energy Efficiency Management Requirements
+# EMAN MIB Modernization
+
+   To support energy management, a set of EMAN MIB modules have been developed in EMAN WGs:
+   o Enegy Object Context MIB module defined in RFC7461
+   o Entity MIB module defined in RFC6933
+   o Power and Energy Monitoring and Control MIB module defined in RFC7460
+   o Entity Sensor MIB module defined in RFC3433
+   o Power Ethernet MIB module defined in RFC3621
+   o UPS Power Monitoring MIB module defined in RFC1628
+   o LLDP MIB module and LLDP MED MIB module
+   However, as decribed in section 5 of RFC 7603, EMAN addresses the needs of energy monitoring in
+   terms of measurement and considers limited control capabilities of energy monitoring of networks. 
+   
+   Due to limitation of Writeable MIB module, one IESG statement published in 2014
+   encourage use the NETCONF/YANG standards for configuration. 
+   We have seen RFC 8348 has modernized 3 SNMP MIB modules
+   o Entity MIB module
+   o Entity Sensor MIB module
+   o Entity State MIB module
+   into one YANG data model for Hardware management
+   However Power and Energy Monitoring and Control MIB module hasn't been modernized yet, in addition,
+   it has limited power control capabilities. This document aims at leveraging EMAN MIB modules developed
+   by EMAN WG to develop YANG data model for both energy efficiency monitoring and energy efficiency control.
+   
+## Overview of Energy Management Requirements
 
    The following basic management functions are required:
-   o   discovering energy-managed network, devices and their components
-
-   o  discovering Inventory of power components' their capabilities, optimization
-        control capabilities, nominal condition use
-
-   o  discovering supported power state of each network device within the network
-
-   o discovering power relationship between component within network device and across network devices.
 
    o  monitoring Power States
 
@@ -300,6 +368,20 @@ informative:
 
    o  monitoring Power Attributes
 
+   o  setting Power States
+
+   In addition, to support energy efficiency management, additional requirements concerned with discovery functions
+   and control functions are introduced:
+   
+   o   discovering energy-managed network, devices and their components
+
+   o   discovering Inventory of power components' their capabilities, optimization
+        control capabilities, nominal condition use
+
+   o  discovering supported power state of each network device within the network
+
+   o discovering power relationship between component within network device and across network devices.
+   
    o  support additional energy efficiency metrics for energy efficiency monitoring, e.g., heat consumption, energy
        efficiency ratio, maximum wake up time, etc
 
@@ -384,10 +466,6 @@ informative:
   o  the name, uuid of each hardware component in the Hardware YANG module {{?RFC8348}}
 
   o the network-id, link-id, node-id, port-id of the Network Topology YANG module {{?RFC8345}}
-
-  o the contains-child of the Hardware YANG module {{?RFC8348}}
-
-  o the child-component-ref of the Network Inventory YANG module
 
    Generic means for reusing other entity identifiers must be provided.
 
@@ -758,7 +836,16 @@ informative:
    The standard must provide means for reporting the received and
    provided energy for each individual Power State.  This extends the
    requirements on Power State statistics described in Section 5.4.7.
+   
+## Obsolete Battery State from RFC6988
 
+   Batteries are built in component within a network device and have no
+   difference with other built in components such as power supply. Therefore
+   there is no need to monitor the battery status of these entities by
+   network management systems separately.
+
+   This document proposes to obsolete battery state from RFC6988.
+   
 ## Time Series of Measured Values
 
    For some network management tasks, obtaining time series of measured
@@ -863,6 +950,111 @@ informative:
   
   In addition, the standard must provide means to support both local management and
   network wide management based on energy saving functionality.
+
+# Reporting on Other Entities
+
+   As discussed in Section 5, not all energy-related information may be
+   available at the entity in question.  Such information may be
+   provided by other entities.  This section covers only the reporting
+   of information.  See Section 8 for requirements on controlling other
+   entities.
+
+   There are cases where a power supply unit switches power for several
+   entities by turning power on or off at a single Power Outlet or where
+   a power meter measures the accumulated power of several entities at a
+   single power line.  Consequently, it should be possible to report
+   that a monitored value does not relate to just a single entity but is
+   an accumulated value for a set of entities.  All of the entities
+   belonging to that set need to be identified.
+
+## Reports on Other Entities
+
+   The standard must provide means for an entity to report information
+   on another entity.
+
+## Identity of Other Entities on Which Information Is Reported
+
+   For entities that report on one or more other entities, the standard
+   must provide means for reporting the identity of other entities on
+   which information is reported.  Note that, in some situations, a
+   manual configuration might be required to populate this information.
+
+## Reporting Quantities Accumulated over Multiple Entities
+
+   The standard must provide means for reporting the list of all
+   entities from which contributions are included in an accumulated
+   value.
+
+## List of All Entities on Which Information Is Reported
+
+   For entities that report on one or more other entities, the standard
+   must provide means for reporting the complete list of all those
+   entities on which energy-related information can be reported.
+
+## Content of Reports on Other Entities
+
+   For entities that report on one or more other entities, the standard
+   must provide means for indicating what type or types of energy-
+   related information can be reported, and for which entities.
+
+# Controlling Other Entities
+
+   This section specifies requirements for controlling Power States and
+   power supply of entities by communicating with other entities that
+   have the means for doing that control.
+
+## Controlling Power States of Other Entities
+
+   RFC6988 allow some entitteis have control over Power States of other entities,
+   e.g., in Building automation case where a gateway to a building system may have
+   the means to control the Power State of entities in the building that do not have
+   an IP interface. 
+
+   In this document, we assume all network devices have IP connectivity in the operator
+   controlled environment. Therefore only an Energy Management System has control over
+   Power States of other entities.
+
+   In addition, it is required that an entity that has its state
+   controlled by the Energy Management System has the means to report the list of
+   these other entities.
+
+### Control of Power States of Other Entities
+
+   The standard must provide means for an Energy Management System to
+   send Power State control commands to an entity that controls the
+   Power States of entities other than the entity to which the command
+   was sent.
+
+### Identity of Other Power State Controlled Entities
+
+   The standard must provide means for reporting the identities of the
+   entities for which the reporting entity has the means to control
+   their Power States.  Note that, in some situations, a manual
+   configuration might be required to populate this information.
+
+### List of All Power State Controlled Entities
+
+   The standard must provide means for an entity to report the list of
+   all entities for which it can control the Power State.
+
+### List of All Power State Controllers
+
+   The standard must provide means for an entity that receives commands
+   controlling its Power State from other entities to report the list of
+   all those entities.
+
+## Controlling Power Supply
+
+   Some entities may have control of the power supply of other entities,
+   for example, because the other entity is supplied via a Power Outlet
+   of the entity.  For this and similar cases, means are needed to make
+   this control accessible to the Energy Management System.  This need
+   is already addressed by the requirement in Section 6.2.
+
+   In addition, it is required that an entity that has its supply
+   controlled by other entities has the means to report the list of
+   these other entities.  This need is already addressed by requirements
+   in Sections 5.2.3 and 5.2.4.
 
 # Security Considerations
 
