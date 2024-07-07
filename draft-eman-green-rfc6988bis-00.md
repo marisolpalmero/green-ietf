@@ -104,7 +104,7 @@ informative:
 # Introduction
 
    With rising energy costs and an increasing awareness of the
-   ecological impact of running information technology equipment, Energy
+   environemntal impact of running information technology equipment, Energy
    efficiency Management functions and management interfaces are becoming
    an additional basic requirement for network management systems and devices
    connected to a network.
@@ -114,7 +114,7 @@ informative:
    and control functions.
    Energy efficiency Management functions focus mainly on network devices and
    their built-in components that receive and provide electrical energy.  Devices such
-   as switch routers, server and storage device should have an IP address providing a
+   as switches, routers, servers and storage devices should have an IP address providing a
    management interface for the network device.
 
    These requirements are concerned with the standards specification
@@ -159,7 +159,7 @@ informative:
    that would be needed for Energy Management, there are significant
    differences between Energy Management and most well-known network
    management functions.  The most significant difference is the need
-   for some devices to report on other entities.  There are three major
+   for some devices to report on other entities.  There are two major
    reasons for this.
 
    o  For monitoring a particular entity, it is not always sufficient to
@@ -171,7 +171,10 @@ informative:
       power line into the entity.  A Power Distribution Unit (PDU) and a
       Power over Ethernet (PoE) switch are common examples.  Both supply
       power to other entities at sockets or ports, respectively, and are
-      often instrumented to measure power per socket or port.
+      often instrumented to measure power per socket or port. Also it 
+      could be considered to obtain power values for the entity via 
+      communication with other entities outside of the power distribution 
+      tree, like for example external databases or even data sheets.
 
    o  Similar considerations apply to controlling the power supply of an
       entity that often needs direct or indirect communications with
@@ -1170,7 +1173,9 @@ informative:
 	new: network-wide energy efficiency metric (like in Data Center)
 	derived ones => we have energy metrics => we might new performance (for ex: traffic/energy)
 	temperature? it should be somewhere else 
+   new: standard for carbon reporting, making it easy for global reporting. It is important to know what network devices are consuming, i.e. solar power, wind power, cogeneration, etc.
 
+   new: lifecycle metrics, related to manufacturing energy cost, transport, recyclability and end of life disposal impact. This information today is not part of the day to day operations, but it is considered as part of sustainable strategy related to energy efficiency.
 
 - do we need new power states? Maybe not but we need to explain the mapping of existing energy efficient features
 -    When an Energy Object is set to a particular Power State, the
@@ -1180,6 +1185,11 @@ informative:
    State (Class) control attributes: actual and requested.
 
  => Notion of intended/applied like NMDA in YANG
+
+- Enhance EMAN framework, to support a more robust and comprehensive Energy Efficiency Strategy. Let devices report whatever they can using existing interfaces, without waiting until they implement new capabilities determined by new or existing standards. Including the capability to integrate with external data sources, such as vendor datasheets that provide energy consumption information from various entities. Additionally, it encompasses the inclusion of metadata that cannot be directly implemented on network devices. Examples of such metadata are the origin of the energy (e.g., whether it is sourced from renewable resources) and the carbon emission factor specific to the location of the network entity.
+
+- Out of scope for the short term approach of EMAN framework enhancements, but might be good to call it out, EMAN doesn't include mechanisms for integrating occupancy sensors or user behavior analytics, which can be critical for optimizing HVAC, lighting, and other systems for energy efficiency. This is a key aspect for Smart Buildings and Data Centers energy efficiency metrics. 
+
 
 
 # References
