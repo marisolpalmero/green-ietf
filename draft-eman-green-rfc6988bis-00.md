@@ -48,9 +48,9 @@ informative:
 --- abstract
 
    This document defines requirements for standards specifications for
-   Energy Management, taking RFC6988 as a starting point. The requirements defined in this document are concerned with discovery functions, monitoring functions as well as control functions.
+   Energy Management, taking RFC6988 as a starting point. Eleven years after the RFC 6988 publication, this document re-evaluate the requirements. The requirements defined in this document are concerned with discovery functions, monitoring functions as well as control functions.
    Discovery functions include identifying energy-managed network, devices and
-   their components and discovery of inventory of power components' their
+   their components and discovery of inventory of power components 
    capabilities, optimization control capabilities, nominal condition use. Monitoring functions include monitoring their Power States, Power Attributes, energy consumption, energy
    efficiency metrics.  Control functions include such functions as controlling energy saving
    and optimization functions and Power State of energy-managed devices and their components.
@@ -61,6 +61,45 @@ informative:
 
 --- middle
 
+
+# In Preparation of the GREEN BoF at IETF 120
+
+   The EMAN (Energy MANagement) working, created in 2010 and now concluded, has produced multiples RFCs
+
+      o RFC 7603, Energy Management (EMAN) Applicability Statement
+
+      o RFC 7577, Definition of Managed Objects for Battery Monitoring
+
+      o RFC 7460, Monitoring and Control MIB for Power and Energy
+
+      o RFC 7461, Energy Object Context MIB
+
+      o RFC 7326, Energy Management Framework
+
+      o RFC 6988, Requirements for Energy Management
+
+      o RFC 6933, Entity MIB (Version 4)
+
+   Note also that some other energy-related MIB modules have been created, but not by the EMAN Working Group
+
+      o Entity Sensor MIB module defined in RFC3433
+
+      o Power Ethernet MIB module defined in RFC3621
+
+      o UPS Power Monitoring MIB module defined in RFC1628
+
+      o LLDP MIB module and LLDP MED MIB module
+   
+   Due to limitation of Writeable MIB module, one IESG statement published in 2014 encourages the 
+   use the NETCONF/YANG standards for configuration. Based on the YANG modules developments, 3 MIB 
+   modules (Entity MIB module, Entity Sensor MIB module, Entity State MIB module) have been 
+   transormed ino the "YANG Data Model for Hardware Management" RFC8348.
+
+   However Power and Energy Monitoring and Control MIB module hasn't been transformed yet into 
+   YANG modules. 
+
+   Eleven years after the EMAN requirements RFC 6988 publication, this document re-evaluates the 
+   energy-related requirements, as a preparation for the GREEN BoF at IETF 120. 
 
 # Introduction
 
@@ -106,7 +145,7 @@ informative:
    and the granularity of reporting of energy-related information.  A
    standard must support the unique identification of entities,
    reporting per network, per entire device, and reporting energy-related information
-   on individual components of a device.
+   on individual components of a device or attached devices.
 
    Section 5 specifies requirements related to the monitoring of
    entities.  This includes general (type, context) information and
@@ -234,6 +273,20 @@ informative:
       characterizes its capabilities, power consumption, and
       responsiveness to input [IEEE-1621].
 
+# High-level Differences with RFC6988
+   
+   The following section will delve into the specific details but from a high level point of view, the differences between this document and the RFC6988 are:
+
+      - new definition for "Energy Efficiency Management"
+
+      - a focus towards YANG, and not any longer on MIB modules
+
+      - as a consequence from the previous point, the ENTITY-MIB v4 (RFC6933) is replaced by the Hardware YANG module RFC8348
+
+      - less focus on the battery management (as batteries haves some self-optimization features these days)
+
+      - less focus on the Power over Ethernet management
+
 # General Considerations Related to Energy Management
 
    The basic objective of Energy Efficiency Management is to operate sets of
@@ -332,29 +385,7 @@ informative:
 
    o  choosing the time of the next maintenance cycle for an entity
 
-# EMAN MIB Modernization
 
-   To support energy management, a set of EMAN MIB modules have been developed in EMAN WGs:
-   o Enegy Object Context MIB module defined in RFC7461
-   o Entity MIB module defined in RFC6933
-   o Power and Energy Monitoring and Control MIB module defined in RFC7460
-   o Entity Sensor MIB module defined in RFC3433
-   o Power Ethernet MIB module defined in RFC3621
-   o UPS Power Monitoring MIB module defined in RFC1628
-   o LLDP MIB module and LLDP MED MIB module
-   However, as decribed in section 5 of RFC 7603, EMAN addresses the needs of energy monitoring in
-   terms of measurement and considers limited control capabilities of energy monitoring of networks. 
-   
-   Due to limitation of Writeable MIB module, one IESG statement published in 2014
-   encourage use the NETCONF/YANG standards for configuration. 
-   We have seen RFC 8348 has modernized 3 SNMP MIB modules
-   o Entity MIB module
-   o Entity Sensor MIB module
-   o Entity State MIB module
-   into one YANG data model for Hardware management
-   However Power and Energy Monitoring and Control MIB module hasn't been modernized yet, in addition,
-   it has limited power control capabilities. This document aims at leveraging EMAN MIB modules developed
-   by EMAN WG to develop YANG data model for both energy efficiency monitoring and energy efficiency control.
    
 ## Overview of Energy Management Requirements
 
@@ -420,11 +451,10 @@ informative:
    night.
 
    Identifiers for network, network devices and components are already defined in
-   standard YANG modules, such as the Network Inventory YANG module 
-   {{?I-D.ietf-ivy-network-inventory-yang}}, the Hardware YANG module {{?RFC8348}}
-   , Network Topology YANG module {{?RFC8345}}.  Energy Efficiency
-   Management needs a means to link energy-related information to such
-   identifiers.
+   standard YANG modules Network Topology YANG module {{?RFC8345}} and Hardware YANG 
+   module {{?RFC8348}}. Note that Network Topology YANG module {{?RFC8345}} identifiers 
+   are reused in the Network Inventory YANG module  {{?I-D.ietf-ivy-network-inventory-yang}} 
+   and are also the basis for the Digital Map Modeling efforts in the NMOP Working Group.
 
    Instrumentation for measuring the received and provided energy of a
    device is typically more expensive than instrumentation for
@@ -440,7 +470,7 @@ informative:
 
 ## Identifying Entitiy Capabilities
 
-   The standard must provide means for disovering  Inventory of power components' their capabilities, optimization
+   The standard must provide means for discovering  Inventory of power components' their capabilities, optimization
     control capabilities, nominal condition use.
    In addition, The standard must provide means for disovering supported power state of each network device within the network
    and power relationship between component within network device and across network devices.
@@ -460,12 +490,12 @@ informative:
    The standard must provide means for reusing entity identifiers from
    existing standards, including at least the following:
 
-   o  the ne-id, uuid of the network element and component-id, uuid of each component within the network element
-      in Network Inventory YANG module {{?I-D.ietf-ivy-network-inventory-yang}}
+   o  the network-id, link-id, node-id, port-id of the Network Topology YANG module {{?RFC8345}}
 
-  o  the name, uuid of each hardware component in the Hardware YANG module {{?RFC8348}}
+   o  the ne-id, uuid of the network element and component-id, uuid of each component within the network element in Network Inventory YANG module {{?I-D.ietf-ivy-network-inventory-yang}}
 
-  o the network-id, link-id, node-id, port-id of the Network Topology YANG module {{?RFC8345}}
+   o  the name, uuid of each hardware component in the Hardware YANG module {{?RFC8348}}
+
 
    Generic means for reusing other entity identifiers must be provided.
 
@@ -1121,24 +1151,27 @@ informative:
    Bruce Nordman.
    
 # Open Issues
-- rewrite the abstract and intro
-- we support YANG and not MIB
-- A standard must support the unique identification of entities
+- DONE: rewrite the abstract and intro
+- DONE: YANG and not MIB
+- DONE: A standard must support the unique identification of entities
   => 4.4.  Using Entity Identifiers of Existing MIB Modules, changed from MIB to YANG
-    => the uuid from the hardware YANG RFC 8348 (replacement for ENTITY-MIB v4
-	
-- a new requirement for the unique id: the link with the digital map, inventory
+  => hardware YANG RFC 8348 (replacement for ENTITY-MIB v4
+  DONE: a new requirement for the unique id: the link with the digital map, inventory
 	so the unique Ids are the ones from RFC8345 and a consequence IVY (and NMOP)
 	NetworkId, NodeId, LinkId, and interfaceId
-- To be decided: Do we need to keep a reference to the MIB object entPhysicalUUID (in section 4.4)
-(from ENTITY-MIB v4) in case of legacy device (MIB)? 
+- DONE: battery not important for green as a core component => could be added later       
+- DONE (but not complete) new section: diff compared to the old RFC
+- DONE: less focus on PoE
+- run the document through word for spelling mistakes
+
+- OPEN ISSUE FOR THE BOF: Do we need to keep a reference to the MIB object entPhysicalUUID (in section 4.4 from ENTITY-MIB v4) in case of legacy device (MIB)? 
+- OPEN ISSUE FOR THE BOF: the EMAN requirements and EMAN framework had a lot of emphasis on the "Reporting on Other Entities", typically smart PDU or PoE. Is this important.
 - new GREEN metrics? 
 	new: network-wide energy efficiency metric (like in Data Center)
 	derived ones => we have energy metrics => we might new performance (for ex: traffic/energy)
 	temperature? it should be somewhere else 
-- Battery: not important for green as a core component => could be added later			
-- new section: diff compared to the old RFC
-- less focus on PoE
+
+
 - do we need new power states? Maybe not but we need to explain the mapping of existing energy efficient features
 -    When an Energy Object is set to a particular Power State, the
    represented device or component may be busy.  The Energy Object
