@@ -25,10 +25,11 @@ Abstract
    managed network, devices and their components, discovery of inventory
    of power components capabilities, optimization control capabilities,
    nominal condition use.  Monitoring functions include monitoring their
-   Power States, Power Attributes, energy consumption, energy efficiency
-   metrics.  Control functions include such functions as controlling
-   energy saving and optimization functions and Power State of energy-
-   managed devices and their components.
+   Power States, Power Attributes, energy consumption, network
+   performance, energy efficiency metrics.  Control functions include
+   such functions as controlling energy saving and optimization
+   functions and Power State of energy-managed devices and their
+   components.
 
    This document does not specify the features that must be implemented
    by compliant implementations but rather lists features that must be
@@ -49,7 +50,6 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 9 January 2025.
 
 
 
@@ -57,6 +57,8 @@ Claise, et al.           Expires 9 January 2025                 [Page 1]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
+
+   This Internet-Draft will expire on 9 January 2025.
 
 Copyright Notice
 
@@ -88,14 +90,14 @@ Table of Contents
      3.3.  Local versus Network-Wide Energy Management . . . . . . .  10
      3.4.  Energy Monitoring versus Energy Saving  . . . . . . . . .  11
      3.5.  Overview of Energy Management Requirements  . . . . . . .  11
-   4.  Identification of Entities  . . . . . . . . . . . . . . . . .  12
+   4.  Identification of Entities  . . . . . . . . . . . . . . . . .  13
      4.1.  Identifying Entities  . . . . . . . . . . . . . . . . . .  13
      4.2.  Identifying Entitiy Capabilities  . . . . . . . . . . . .  13
-     4.3.  Persistence of Identifiers  . . . . . . . . . . . . . . .  13
+     4.3.  Persistence of Identifiers  . . . . . . . . . . . . . . .  14
      4.4.  Change of Identifiers . . . . . . . . . . . . . . . . . .  14
      4.5.  Using Entity Identifiers of Existing YANG Modules . . . .  14
    5.  Information on Entities . . . . . . . . . . . . . . . . . . .  14
-     5.1.  General Information on Entities . . . . . . . . . . . . .  14
+     5.1.  General Information on Entities . . . . . . . . . . . . .  15
        5.1.1.  Type of Entity  . . . . . . . . . . . . . . . . . . .  15
        5.1.2.  Context of an Entity  . . . . . . . . . . . . . . . .  15
        5.1.3.  Significance of Entities  . . . . . . . . . . . . . .  15
@@ -104,8 +106,6 @@ Table of Contents
      5.2.  Power Interfaces  . . . . . . . . . . . . . . . . . . . .  15
        5.2.1.  List of Power Interfaces  . . . . . . . . . . . . . .  16
        5.2.2.  Operational Mode of Power Interfaces  . . . . . . . .  16
-       5.2.3.  Corresponding Power Outlet  . . . . . . . . . . . . .  16
-       5.2.4.  Corresponding Power Inlets  . . . . . . . . . . . . .  16
 
 
 
@@ -114,7 +114,9 @@ Claise, et al.           Expires 9 January 2025                 [Page 2]
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
-       5.2.5.  Availability of Power . . . . . . . . . . . . . . . .  16
+       5.2.3.  Corresponding Power Outlet  . . . . . . . . . . . . .  16
+       5.2.4.  Corresponding Power Inlets  . . . . . . . . . . . . .  17
+       5.2.5.  Availability of Power . . . . . . . . . . . . . . . .  17
        5.2.6.  Use of Power  . . . . . . . . . . . . . . . . . . . .  17
        5.2.7.  Type of Current . . . . . . . . . . . . . . . . . . .  17
        5.2.8.  Nominal Voltage Range . . . . . . . . . . . . . . . .  17
@@ -123,45 +125,43 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
      5.3.  Power . . . . . . . . . . . . . . . . . . . . . . . . . .  17
        5.3.1.  Real Power / Power Factor . . . . . . . . . . . . . .  18
        5.3.2.  Power Measurement Interval  . . . . . . . . . . . . .  18
-       5.3.3.  Power Measurement Method  . . . . . . . . . . . . . .  18
-       5.3.4.  Accuracy of Power and Energy Values . . . . . . . . .  18
-       5.3.5.  Actual Voltage and Current  . . . . . . . . . . . . .  18
+       5.3.3.  Power Measurement Method  . . . . . . . . . . . . . .  19
+       5.3.4.  Accuracy of Power and Energy Values . . . . . . . . .  19
+       5.3.5.  Actual Voltage and Current  . . . . . . . . . . . . .  19
        5.3.6.  High-Power/Low-Power Notifications  . . . . . . . . .  19
        5.3.7.  Complex Power / Power Factor  . . . . . . . . . . . .  19
        5.3.8.  Actual AC Frequency . . . . . . . . . . . . . . . . .  19
        5.3.9.  Total Harmonic Distortion . . . . . . . . . . . . . .  19
-       5.3.10. Power Supply Impedance  . . . . . . . . . . . . . . .  19
-     5.4.  Power State . . . . . . . . . . . . . . . . . . . . . . .  19
+       5.3.10. Power Supply Impedance  . . . . . . . . . . . . . . .  20
+     5.4.  Power State . . . . . . . . . . . . . . . . . . . . . . .  20
        5.4.1.  Actual Power State  . . . . . . . . . . . . . . . . .  20
        5.4.2.  List of Supported Power States  . . . . . . . . . . .  20
        5.4.3.  Multiple Power State Sets . . . . . . . . . . . . . .  20
-       5.4.4.  List of Supported Power State Sets  . . . . . . . . .  20
-       5.4.5.  List of Supported Power States within a Set . . . . .  20
-       5.4.6.  Typical Power Per Power State . . . . . . . . . . . .  20
-       5.4.7.  Power State Statistics  . . . . . . . . . . . . . . .  20
+       5.4.4.  List of Supported Power State Sets  . . . . . . . . .  21
+       5.4.5.  List of Supported Power States within a Set . . . . .  21
+       5.4.6.  Typical Power Per Power State . . . . . . . . . . . .  21
+       5.4.7.  Power State Statistics  . . . . . . . . . . . . . . .  21
        5.4.8.  Power State Changes . . . . . . . . . . . . . . . . .  21
      5.5.  Energy  . . . . . . . . . . . . . . . . . . . . . . . . .  21
-       5.5.1.  Energy Measurement  . . . . . . . . . . . . . . . . .  21
-       5.5.2.  Energy Efficiency Measurement . . . . . . . . . . . .  21
-       5.5.3.  Power Gain Measurement  . . . . . . . . . . . . . . .  21
+       5.5.1.  Energy Measurement  . . . . . . . . . . . . . . . . .  22
+       5.5.2.  Energy Efficiency Measurement . . . . . . . . . . . .  22
+       5.5.3.  Power Gain Measurement  . . . . . . . . . . . . . . .  22
        5.5.4.  Time Intervals  . . . . . . . . . . . . . . . . . . .  22
        5.5.5.  Energy Per Power State  . . . . . . . . . . . . . . .  22
      5.6.  Obsolete Battery State from RFC6988 . . . . . . . . . . .  22
-     5.7.  Time Series of Measured Values  . . . . . . . . . . . . .  22
-       5.7.1.  Time Series of Energy Values  . . . . . . . . . . . .  23
-       5.7.2.  Time Series Interval Types  . . . . . . . . . . . . .  23
-       5.7.3.  Time Series Storage Capacity  . . . . . . . . . . . .  23
-   6.  Control of Entities . . . . . . . . . . . . . . . . . . . . .  23
+     5.7.  Time Series of Measured Values  . . . . . . . . . . . . .  23
+       5.7.1.  Time Series of Energy Values  . . . . . . . . . . . .  24
+       5.7.2.  Time Series Interval Types  . . . . . . . . . . . . .  24
+       5.7.3.  Time Series Storage Capacity  . . . . . . . . . . . .  24
+   6.  Control of Entities . . . . . . . . . . . . . . . . . . . . .  24
      6.1.  Provisioning Power States . . . . . . . . . . . . . . . .  24
      6.2.  Controlling Power Supply  . . . . . . . . . . . . . . . .  24
      6.3.  Controlling energy saving and optimization
-           functionalities . . . . . . . . . . . . . . . . . . . . .  24
-   7.  Reporting on Other Entities . . . . . . . . . . . . . . . . .  24
+           functionalities . . . . . . . . . . . . . . . . . . . . .  25
+   7.  Reporting on Other Entities . . . . . . . . . . . . . . . . .  25
      7.1.  Reports on Other Entities . . . . . . . . . . . . . . . .  25
      7.2.  Identity of Other Entities on Which Information Is
            Reported  . . . . . . . . . . . . . . . . . . . . . . . .  25
-     7.3.  Reporting Quantities Accumulated over Multiple
-           Entities  . . . . . . . . . . . . . . . . . . . . . . . .  25
 
 
 
@@ -170,29 +170,31 @@ Claise, et al.           Expires 9 January 2025                 [Page 3]
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
-     7.4.  List of All Entities on Which Information Is Reported . .  25
-     7.5.  Content of Reports on Other Entities  . . . . . . . . . .  25
-   8.  Controlling Other Entities  . . . . . . . . . . . . . . . . .  25
-     8.1.  Controlling Power States of Other Entities  . . . . . . .  25
+     7.3.  Reporting Quantities Accumulated over Multiple
+           Entities  . . . . . . . . . . . . . . . . . . . . . . . .  25
+     7.4.  List of All Entities on Which Information Is Reported . .  26
+     7.5.  Content of Reports on Other Entities  . . . . . . . . . .  26
+   8.  Controlling Other Entities  . . . . . . . . . . . . . . . . .  26
+     8.1.  Controlling Power States of Other Entities  . . . . . . .  26
        8.1.1.  Control of Power States of Other Entities . . . . . .  26
        8.1.2.  Identity of Other Power State Controlled Entities . .  26
-       8.1.3.  List of All Power State Controlled Entities . . . . .  26
-       8.1.4.  List of All Power State Controllers . . . . . . . . .  26
-     8.2.  Controlling Power Supply  . . . . . . . . . . . . . . . .  26
+       8.1.3.  List of All Power State Controlled Entities . . . . .  27
+       8.1.4.  List of All Power State Controllers . . . . . . . . .  27
+     8.2.  Controlling Power Supply  . . . . . . . . . . . . . . . .  27
    9.  Security Considerations . . . . . . . . . . . . . . . . . . .  27
-     9.1.  Secure Energy Management  . . . . . . . . . . . . . . . .  27
-     9.2.  Isolation of Insufficiently Secure Entities . . . . . . .  27
+     9.1.  Secure Energy Management  . . . . . . . . . . . . . . . .  28
+     9.2.  Isolation of Insufficiently Secure Entities . . . . . . .  28
      9.3.  Optional Restriction of Functions . . . . . . . . . . . .  28
    10. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  28
    11. Open Issues for the Creation of this Draft Version 00 (section
            to be removed)  . . . . . . . . . . . . . . . . . . . . .  28
-   12. Open Issues to be Discussed at the BoF  . . . . . . . . . . .  29
+   12. Open Issues to be Discussed at the BoF  . . . . . . . . . . .  30
    13. References  . . . . . . . . . . . . . . . . . . . . . . . . .  30
-     13.1.  Normative References . . . . . . . . . . . . . . . . . .  30
-     13.2.  Informative References . . . . . . . . . . . . . . . . .  31
-   14. Informative References  . . . . . . . . . . . . . . . . . . .  31
-   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  32
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  33
+     13.1.  Normative References . . . . . . . . . . . . . . . . . .  31
+     13.2.  Informative References . . . . . . . . . . . . . . . . .  32
+   14. Informative References  . . . . . . . . . . . . . . . . . . .  32
+   Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  34
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  34
 
 1.  Introduction
 
@@ -201,22 +203,20 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    The EMAN (Energy MANagement) working group, created in 2010 and now
    concluded, has produced multiples RFCs
 
-     o {?RFC7603}}, Energy Management (EMAN) Applicability Statement
+     o {{RFC7603}}, Energy Management (EMAN) Applicability Statement
 
-     o {?RFC7577}}, Definition of Managed Objects for Battery Monitoring
+     o {{RFC7577}}, Definition of Managed Objects for Battery Monitoring
 
-     o {?RFC7460}}, Monitoring and Control MIB for Power and Energy
+     o {{RFC7460}}, Monitoring and Control MIB for Power and Energy
 
-     o {?RFC7461}}, Energy Object Context MIB
+     o {{RFC7461}}, Energy Object Context MIB
 
-     o {?RFC7326}}, Energy Management Framework
+     o {{RFC7326}}, Energy Management Framework
 
-     o {?RFC6988}}, Requirements for Energy Management
+     o {{RFC6988}}, Requirements for Energy Management
 
-     o {?RFC6933}}, Entity MIB (Version 4)
+     o {{RFC6933}}, Entity MIB (Version 4)
 
-   Note also that some other energy-related MIB modules have been
-   created, but not by the EMAN Working Group
 
 
 
@@ -226,11 +226,14 @@ Claise, et al.           Expires 9 January 2025                 [Page 4]
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
-     o {?RFC3433}}, Entity Sensor MIB module
+   Note also that some other energy-related MIB modules have been
+   created, but not by the EMAN Working Group
 
-     o {?RFC3621}}, Power Ethernet MIB modules
+     o {{RFC3433}}, Entity Sensor MIB module
 
-     o {?RFC1628}}UPS Power Monitoring MIB module
+     o {{RFC3621}}, Power Ethernet MIB modules
+
+     o {{RFC1628}}UPS Power Monitoring MIB module
 
      o LLDP MIB module and LLDP MED MIB module
 
@@ -271,9 +274,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    Energy efficiency Management functions and management interfaces are
    becoming an additional basic requirement for network management
    systems and devices connected to a network.
-
-
-
 
 
 
@@ -383,9 +383,9 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    "energy" and "power".  These terms are generic and are used in
    generated terms such as "energy-saving", "low-power", etc.
 
-   Energy
+   Embedded carbon
 
-
+  The amount of GHG emissions associated with upstream (before operation) stages of a product’s life
 
 
 
@@ -394,9 +394,15 @@ Claise, et al.           Expires 9 January 2025                 [Page 7]
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
+   Energy
+
      Energy is the capacity of a system to do work.  As used by
      electric utilities, it is generally a reference to electrical
      energy and is measured in kilowatt-hours (kWh) [IEEE-100].
+
+   Embedded carbon Energy in TCO2e unit (also known as Embodied Energy)
+   associated with the upstream (before operation) stages of a product’s
+   life.
 
    Power
 
@@ -437,18 +443,18 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
    Energy Monitoring
 
-  Energy Monitoring is a part of Energy Efficiency Management that deals with
-  collecting or reading information from network elements and their components to aid in
-  Energy Efficiency Management.
-
-   Energy Control
-
 
 
 Claise, et al.           Expires 9 January 2025                 [Page 8]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
+
+  Energy Monitoring is a part of Energy Efficiency Management that deals with
+  collecting or reading information from network elements and their components to aid in
+  Energy Efficiency Management.
+
+   Energy Control
 
      Energy Control is a part of Energy Management that deals with
      controlling energy supply and Power State of network elements, as
@@ -493,12 +499,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
    o sleep state (not functional but immediately available)
 
-   o off state (may require significant time to become operational)
-
-   In specific network devices, the number of Power States and their
-   properties vary considerably.  Simple entities may only have the
-   extreme states: full Power State and off state.  Many network devices
-
 
 
 Claise, et al.           Expires 9 January 2025                 [Page 9]
@@ -506,6 +506,11 @@ Claise, et al.           Expires 9 January 2025                 [Page 9]
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
+   o off state (may require significant time to become operational)
+
+   In specific network devices, the number of Power States and their
+   properties vary considerably.  Simple entities may only have the
+   extreme states: full Power State and off state.  Many network devices
    have three basic Power States: on, off, and sleep.  However, more
    finely grained Power States can be implemented, especially when
    Energy efficiency gains for communication systems are highly sought
@@ -547,12 +552,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    an entity's Power State and configure or optimize its power-saving
    policies.
 
-   Energy savings can also be achieved with policies implemented by a
-   network management system that controls Power States of managed
-   entities.  Information about the power received and provided by
-   entities in different Power States may be required in order to set
-   such policies.  Often, this information is best acquired through
-   monitoring.
+
 
 
 
@@ -561,6 +561,13 @@ Claise, et al.           Expires 9 January 2025                [Page 10]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
+
+   Energy savings can also be achieved with policies implemented by a
+   network management system that controls Power States of managed
+   entities.  Information about the power received and provided by
+   entities in different Power States may be required in order to set
+   such policies.  Often, this information is best acquired through
+   monitoring.
 
    Network-wide and local Energy Management methods both have advantages
    and disadvantages, and it is often desirable to combine them.
@@ -603,13 +610,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
    o monitoring power (energy conversion rate)
 
-   o monitoring (accumulated) received and provided energy
-
-   o monitoring Power Attributes
-
-   o setting Power States
-
-
 
 
 
@@ -617,6 +617,12 @@ Claise, et al.           Expires 9 January 2025                [Page 11]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
+
+   o monitoring (accumulated) received and provided energy
+
+   o monitoring Power Attributes
+
+   o setting Power States
 
    In addition, to support energy efficiency management, additional
    requirements concerned with discovery functions and control functions
@@ -659,12 +665,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    management interface.  Measurement of received and provided energy
    can provide useful data for energy efficiency management.
 
-4.  Identification of Entities
-
-   Entities must be capable of being uniquely identified within the
-   context of the management system.  This includes entities that are
-   components of managed devices as well as entire devices or the entire
-   network.
 
 
 
@@ -673,6 +673,13 @@ Claise, et al.           Expires 9 January 2025                [Page 12]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
+
+4.  Identification of Entities
+
+   Entities must be capable of being uniquely identified within the
+   context of the management system.  This includes entities that are
+   components of managed devices as well as entire devices or the entire
+   network.
 
    Entities that report on or control other entities must identify the
    entities they report on or control: see Section 7 or Section 8,
@@ -714,13 +721,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    device within the network and power relationship between component
    within network device and across network devices.
 
-4.3.  Persistence of Identifiers
-
-   The standard must provide means for indicating whether identifiers of
-   entities are persistent across a restart of the entity.
-
-
-
 
 
 
@@ -729,6 +729,11 @@ Claise, et al.           Expires 9 January 2025                [Page 13]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
+
+4.3.  Persistence of Identifiers
+
+   The standard must provide means for indicating whether identifiers of
+   entities are persistent across a restart of the entity.
 
 4.4.  Change of Identifiers
 
@@ -768,6 +773,19 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    specifies requirements for monitoring batteries.  Finally, the
    reporting of time series of values is covered by Section 5.7.
 
+
+
+
+
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 14]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
+
 5.1.  General Information on Entities
 
    For Energy Management, understanding the role and context of an
@@ -778,13 +796,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    an entity in a network.  For example, it may be important to exclude
    some mission-critical network devices from being switched to lower
    power or even from being switched off.
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 14]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
 
 5.1.1.  Type of Entity
 
@@ -822,6 +833,15 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    power transmission medium, at which it can in turn receive power,
    provide power, or both.
 
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 15]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
+
    A Power Interface is either an inlet or an outlet.  Some Power
    Interfaces change over time from being an inlet to being an outlet
    and vice versa.  However, most Power Interfaces never change.
@@ -833,14 +853,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    Monitoring, it is useful to retrieve information on the number of
    inlets of a device, the availability of power at inlets, and which
    inlets are actually in use.
-
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 15]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
 
    Network Devices can have one or more Power Outlets for supplying
    other devices with electric power.
@@ -876,6 +888,16 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    The standard must provide means for identifying the Power Outlet that
    provides the power received at a Power Inlet.
 
+
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 16]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
+
 5.2.4.  Corresponding Power Inlets
 
    The standard must provide means for identifying the list of Power
@@ -887,16 +909,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    monitoring the availability of power at each Power Interface.  This
    includes indicating whether a power supply at a Power Interface is
    switched on or off.
-
-
-
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 16]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
 
 5.2.6.  Use of Power
 
@@ -930,6 +942,18 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    Power is measured as an instantaneous value or as the average over a
    time interval.
 
+
+
+
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 17]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
+
    Obtaining highly accurate values for power and energy may be costly
    if dedicated metering hardware is required.  Entities without the
    ability to measure with high accuracy their power, received energy,
@@ -946,14 +970,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    Further properties of the power supplied to a device are also of
    interest.  For AC power supply in particular, several Power
    Attributes beyond the real power are of potential interest to Energy
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 17]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
-
    Management Systems.  The set of these properties includes the complex
    Power Attributes (apparent power, reactive power, and phase angle of
    the current or power factor) as well as the actual voltage, the
@@ -979,6 +995,21 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    value can be measured at the corresponding time or averaged over the
    corresponding time interval.
 
+
+
+
+
+
+
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 18]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
+
 5.3.3.  Power Measurement Method
 
    The standard must provide means to indicate the method used to obtain
@@ -999,16 +1030,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    actual current for each Power Interface as well as for a device.  For
    AC power supply, means must be provided for reporting the actual
    voltage and actual current per phase.
-
-
-
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 18]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
 
 5.3.6.  High-Power/Low-Power Notifications
 
@@ -1035,6 +1056,16 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    For AC power supply, means must be provided for reporting the THD per
    phase.
 
+
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 19]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
+
 5.3.10.  Power Supply Impedance
 
    The standard must provide means for reporting the impedance of a
@@ -1057,14 +1088,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    simultaneously interfacing with a particular entity, the Energy
    Management System must provide means for supporting multiple Power
    State sets used simultaneously at an entity.
-
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 19]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
 
    Power States have parameters that describe their properties.  It is
    required to have a standardized means for reporting some key
@@ -1090,6 +1113,15 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    The standard must provide means for supporting multiple Power State
    sets simultaneously at an entity.
 
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 20]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
+
 5.4.4.  List of Supported Power State Sets
 
    The standard must provide means for retrieving the list of all Power
@@ -1113,14 +1145,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    times each state was entered, and the last time each state was
    entered.  More Power State statistics are addressed by the
    requirements in Section 5.5.3.
-
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 20]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
 
 5.4.8.  Power State Changes
 
@@ -1146,6 +1170,14 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    interruption time, transition time, maximum packet throughput,
    maximum bit throughput and report these quantities.
 
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 21]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
+
 5.5.1.  Energy Measurement
 
    The standard must provide means for reporting measured values of
@@ -1170,14 +1202,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    the maximum power of the entity.  In addition, the minimum power gain
    can also be measured and reported.
 
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 21]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
-
 5.5.4.  Time Intervals
 
    The standard must provide means for reporting the time interval for
@@ -1197,6 +1221,18 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    entities by network management systems separately.
 
    This document proposes to obsolete battery state from RFC6988.
+
+
+
+
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 22]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
 
 5.7.  Time Series of Measured Values
 
@@ -1226,14 +1262,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    a need for others, such as power and battery charge, can be
    identified as well.
 
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 22]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
-
    There are three time interval types under discussion for accumulated
    quantities such as energy.  They can be reported as total values,
    accumulated between the last restart of the measurement and a certain
@@ -1252,6 +1280,15 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    can, for example, be realized by reporting power or energy values
    using the NETCONF protocol [RFC6241].  The NETCONF a protocol can
    also be used to realize pull-based reporting of time series.
+
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 23]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
 
    For reporting time series of measured values, the following
    requirements have been identified.  Further decisions concerning
@@ -1282,14 +1319,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    interfaces for an Energy Management System to control their Power
    State.
 
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 23]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
-
    A power supply is typically not self-managed by devices, and control
    of a power supply is typically not conducted as an interaction
    between an Energy Management System and the device itself.  It is
@@ -1309,6 +1338,13 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    The standard must provide means for switching a power supply off or
    turning a power supply on at Power Interfaces providing power to one
    or more devices.
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 24]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
 
 6.3.  Controlling energy saving and optimization functionalities
 
@@ -1338,14 +1374,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    an accumulated value for a set of entities.  All of the entities
    belonging to that set need to be identified.
 
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 24]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
-
 7.1.  Reports on Other Entities
 
    The standard must provide means for an entity to report information
@@ -1363,6 +1391,16 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    The standard must provide means for reporting the list of all
    entities from which contributions are included in an accumulated
    value.
+
+
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 25]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
 
 7.4.  List of All Entities on Which Information Is Reported
 
@@ -1393,15 +1431,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    in the operator controlled environment.  Therefore only an Energy
    Management System has control over Power States of other entities.
 
-
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 25]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
-
    In addition, it is required that an entity that has its state
    controlled by the Energy Management System has the means to report
    the list of these other entities.
@@ -1419,6 +1448,15 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    entities for which the reporting entity has the means to control
    their Power States.  Note that, in some situations, a manual
    configuration might be required to populate this information.
+
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 26]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
 
 8.1.3.  List of All Power State Controlled Entities
 
@@ -1444,20 +1482,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    these other entities.  This need is already addressed by requirements
    in Sections 5.2.3 and 5.2.4.
 
-
-
-
-
-
-
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 26]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
-
 9.  Security Considerations
 
    Controlling Power State and power supply of entities are considered
@@ -1482,6 +1506,14 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    just the received and provided energy; therefore, monitored data
    requires protection.  This protection includes authentication and
    authorization of entities requesting access to monitored data as well
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 27]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
+
    as confidentiality protection during transmission of monitored data.
    Privacy of stored data in an entity must be taken into account.
    Monitored data may be used as input to control, accounting, and other
@@ -1501,18 +1533,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    that are not sufficiently secure to operate on the public Internet,
    e.g., behind a gateway that implements sufficient security that the
    vulnerable entities are not directly exposed to the Internet.
-
-
-
-
-
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 27]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
 
 9.3.  Optional Restriction of Functions
 
@@ -1541,6 +1561,15 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
    *  DONE: YANG and not MIB
 
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 28]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
+
    *  DONE: A standard must support the unique identification of
       entities => 4.4.  Using Entity Identifiers of Existing MIB
       Modules, changed from MIB to YANG => hardware YANG RFC 8348
@@ -1559,16 +1588,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    *  DONE: run the document through word for spelling mistakes
 
    *  run through idnits
-
-
-
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 28]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
 
    *  new GREEN metrics?  new: network-wide energy efficiency metric
       (like in Data Center) derived ones => we have energy metrics => we
@@ -1599,6 +1618,14 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
       Energy Efficiency Strategy.  Let devices report whatever they can
       using existing interfaces, without waiting until they implement
       new capabilities determined by new or existing standards.
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 29]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
+
       Including the capability to integrate with external data sources,
       such as vendor datasheets that provide energy consumption
       information from various entities.  Additionally, it encompasses
@@ -1610,6 +1637,13 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 12.  Open Issues to be Discussed at the BoF
 
+   *  OPEN ISSUE FOR THE BOF: EMAN "eco system" includes many MIBs.
+      Which one are largely deployed ? Will they/How can they benefit of
+      the GREEN works ?
+
+   *  OPEN ISSUE FOR THE BOF: Battery use cases migh be different 10
+      years after.  Should it be addressed in a future charter?
+
    *  OPEN ISSUE FOR THE BOF: Do we need to keep a reference to the MIB
       object entPhysicalUUID (in section 4.4 from ENTITY-MIB v4) in case
       of legacy device (MIB)?
@@ -1617,20 +1651,12 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    *  OPEN ISSUE FOR THE BOF: the EMAN requirements and EMAN framework
       had a lot of emphasis on the "Reporting on Other Entities",
       typically smart PDU or PoE.  Is this important?  Should this be
-      removed?  This is text about "Sections 7 and 8 contain
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 29]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
-
-      requirements specific to Energy Management.  Due to the nature of
-      power supply, some monitoring and control functions are not
-      conducted by interacting with the entity of interest but rather
-      with other entities, for example, entities upstream in a power
-      distribution tree."
+      removed?  Should it be addressed in a future charter?  This is
+      text about "Sections 7 and 8 contain requirements specific to
+      Energy Management.  Due to the nature of power supply, some
+      monitoring and control functions are not conducted by interacting
+      with the entity of interest but rather with other entities, for
+      example, entities upstream in a power distribution tree."
 
       Expressed differently: Out of scope for the short term approach of
       EMAN framework enhancements, but might be good to call it out,
@@ -1645,6 +1671,16 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
       existing energy efficient features to specific Power States
 
 13.  References
+
+
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 30]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
 
 13.1.  Normative References
 
@@ -1671,17 +1707,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    [IEEE-100] IEEE, "The Authoritative Dictionary of IEEE Standards
    Terms, IEEE 100, Seventh Edition", December 2000.
 
-
-
-
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 30]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
-
    [IEEE-1621] Institute of Electrical and Electronics Engineers, "IEEE
    1621-2004 - IEEE Standard for User Interface Elements in Power
    Control of Electronic Devices Employed in Office/Consumer
@@ -1705,6 +1730,14 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    https://www.itu.int/rec/T-REC-L.1310/en (https://www.itu.int/rec/T-
    REC-L.1310/en).
 
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 31]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
+
 13.2.  Informative References
 
    [IEC.60050] International Electrotechnical Commission, "Electropedia:
@@ -1727,16 +1760,9 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
               <https://datatracker.ietf.org/doc/html/draft-ietf-ivy-
               network-inventory-yang-03>.
 
-
-
-
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 31]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
+   [RFC1628]  Case, J., Ed., "UPS Management Information Base",
+              RFC 1628, DOI 10.17487/RFC1628, May 1994,
+              <https://www.rfc-editor.org/rfc/rfc1628>.
 
    [RFC3411]  Harrington, D., Presuhn, R., and B. Wijnen, "An
               Architecture for Describing Simple Network Management
@@ -1744,15 +1770,68 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
               DOI 10.17487/RFC3411, December 2002,
               <https://www.rfc-editor.org/rfc/rfc3411>.
 
+   [RFC3433]  Bierman, A., Romascanu, D., and K.C. Norseth, "Entity
+              Sensor Management Information Base", RFC 3433,
+              DOI 10.17487/RFC3433, December 2002,
+              <https://www.rfc-editor.org/rfc/rfc3433>.
+
+   [RFC3621]  Berger, A. and D. Romascanu, "Power Ethernet MIB",
+              RFC 3621, DOI 10.17487/RFC3621, December 2003,
+              <https://www.rfc-editor.org/rfc/rfc3621>.
+
    [RFC5905]  Mills, D., Martin, J., Ed., Burbank, J., and W. Kasch,
               "Network Time Protocol Version 4: Protocol and Algorithms
               Specification", RFC 5905, DOI 10.17487/RFC5905, June 2010,
               <https://www.rfc-editor.org/rfc/rfc5905>.
 
+
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 32]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
+
    [RFC6241]  Enns, R., Ed., Bjorklund, M., Ed., Schoenwaelder, J., Ed.,
               and A. Bierman, Ed., "Network Configuration Protocol
               (NETCONF)", RFC 6241, DOI 10.17487/RFC6241, June 2011,
               <https://www.rfc-editor.org/rfc/rfc6241>.
+
+   [RFC6933]  Bierman, A., Romascanu, D., Quittek, J., and M.
+              Chandramouli, "Entity MIB (Version 4)", RFC 6933,
+              DOI 10.17487/RFC6933, May 2013,
+              <https://www.rfc-editor.org/rfc/rfc6933>.
+
+   [RFC6988]  Quittek, J., Ed., Chandramouli, M., Winter, R., Dietz, T.,
+              and B. Claise, "Requirements for Energy Management",
+              RFC 6988, DOI 10.17487/RFC6988, September 2013,
+              <https://www.rfc-editor.org/rfc/rfc6988>.
+
+   [RFC7326]  Parello, J., Claise, B., Schoening, B., and J. Quittek,
+              "Energy Management Framework", RFC 7326,
+              DOI 10.17487/RFC7326, September 2014,
+              <https://www.rfc-editor.org/rfc/rfc7326>.
+
+   [RFC7460]  Chandramouli, M., Claise, B., Schoening, B., Quittek, J.,
+              and T. Dietz, "Monitoring and Control MIB for Power and
+              Energy", RFC 7460, DOI 10.17487/RFC7460, March 2015,
+              <https://www.rfc-editor.org/rfc/rfc7460>.
+
+   [RFC7461]  Parello, J., Claise, B., and M. Chandramouli, "Energy
+              Object Context MIB", RFC 7461, DOI 10.17487/RFC7461, March
+              2015, <https://www.rfc-editor.org/rfc/rfc7461>.
+
+   [RFC7577]  Quittek, J., Winter, R., and T. Dietz, "Definition of
+              Managed Objects for Battery Monitoring", RFC 7577,
+              DOI 10.17487/RFC7577, July 2015,
+              <https://www.rfc-editor.org/rfc/rfc7577>.
+
+   [RFC7603]  Schoening, B., Chandramouli, M., and B. Nordman, "Energy
+              Management (EMAN) Applicability Statement", RFC 7603,
+              DOI 10.17487/RFC7603, August 2015,
+              <https://www.rfc-editor.org/rfc/rfc7603>.
 
    [RFC8345]  Clemm, A., Medved, J., Varga, R., Bahadur, N.,
               Ananthakrishnan, H., and X. Liu, "A YANG Data Model for
@@ -1763,6 +1842,13 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
               YANG Data Model for Hardware Management", RFC 8348,
               DOI 10.17487/RFC8348, March 2018,
               <https://www.rfc-editor.org/rfc/rfc8348>.
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 33]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
 
 Contributors
 
@@ -1784,14 +1870,6 @@ Contributors
    Thomas Dietz
    NEC Europe Ltd.
    Email: Thomas.Dietz@neclab.eu
-
-
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 32]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 Authors' Addresses
@@ -1823,26 +1901,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Claise, et al.           Expires 9 January 2025                [Page 33]
+Claise, et al.           Expires 9 January 2025                [Page 34]
