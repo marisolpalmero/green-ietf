@@ -222,9 +222,11 @@ informative:
    throughout the document; the exceptions are the well-known terms
    "energy" and "power".  These terms are generic and are used in
    generated terms such as "energy-saving", "low-power", etc.
-
+ 
    Embedded carbon
-   
+  
+      The amount of GHG emissions associated with upstream (before operation) stages of a product’s life
+       
    Energy
 
       Energy is the capacity of a system to do work.  As used by
@@ -1205,10 +1207,13 @@ informative:
 
 # Open Issues to be Discussed at the BoF
 
+- OPEN ISSUE FOR THE BOF: EMAN "eco system" includes many MIBs. Which one are largely deployed ? Will they/How can they benefit of the GREEN works ?
+
+- OPEN ISSUE FOR THE BOF: Battery use cases migh be different 10 years after. Should it be addressed in a future charter?
 
 - OPEN ISSUE FOR THE BOF: Do we need to keep a reference to the MIB object entPhysicalUUID (in section 4.4 from ENTITY-MIB v4) in case of legacy device (MIB)? 
 
-- OPEN ISSUE FOR THE BOF: the EMAN requirements and EMAN framework had a lot of emphasis on the "Reporting on Other Entities", typically smart PDU or PoE. Is this important? Should this be removed? 
+- OPEN ISSUE FOR THE BOF: the EMAN requirements and EMAN framework had a lot of emphasis on the "Reporting on Other Entities", typically smart PDU or PoE. Is this important? Should this be removed? Should it be addressed in a future charter?
    This is text about "Sections 7 and 8 contain requirements specific to Energy Management.
    Due to the nature of power supply, some monitoring and control
    functions are not conducted by interacting with the entity of
