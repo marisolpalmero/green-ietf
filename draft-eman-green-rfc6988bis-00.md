@@ -1208,9 +1208,6 @@ informative:
    derived ones => we have energy metrics => we might new performance (for ex: traffic/energy)
    temperature? it should be somewhere else 
 
-- new: standard for carbon reporting, making it easy for global reporting. It is important to know what network devices are consuming, i.e. solar power, wind power, cogeneration, etc.
-
-- new: lifecycle information, related to manufacturing energy cost, transport, recyclability, and end of life disposal impact. This is part of what is also called "embedded carbon". This information today is not part of the run-time operations, but it is considered as part of the sustainable strategy related to energy efficiency. Please refer to ecodesign framework [(EU) 2024/1781] published in June by the European Commission.
 
 -  new:  When an Energy Object is set to a particular Power State, the
    represented device or component may be busy.  The Energy Object
