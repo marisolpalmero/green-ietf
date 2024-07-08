@@ -74,27 +74,27 @@ informative:
 
    The EMAN (Energy MANagement) working group, created in 2010 and now concluded, has produced multiples RFCs
 
-      o {?RFC7603}}, Energy Management (EMAN) Applicability Statement
+      o {{?RFC7603}}, Energy Management (EMAN) Applicability Statement
 
-      o {?RFC7577}}, Definition of Managed Objects for Battery Monitoring
+      o {{?RFC7577}}, Definition of Managed Objects for Battery Monitoring
 
-      o {?RFC7460}}, Monitoring and Control MIB for Power and Energy
+      o {{?RFC7460}}, Monitoring and Control MIB for Power and Energy
 
-      o {?RFC7461}}, Energy Object Context MIB
+      o {{?RFC7461}}, Energy Object Context MIB
 
-      o {?RFC7326}}, Energy Management Framework
+      o {{?RFC7326}}, Energy Management Framework
 
-      o {?RFC6988}}, Requirements for Energy Management
+      o {{?RFC6988}}, Requirements for Energy Management
 
-      o {?RFC6933}}, Entity MIB (Version 4)
+      o {{?RFC6933}}, Entity MIB (Version 4)
 
    Note also that some other energy-related MIB modules have been created, but not by the EMAN Working Group
 
-      o {?RFC3433}}, Entity Sensor MIB module
+      o {{?RFC3433}}, Entity Sensor MIB module
 
-      o {?RFC3621}}, Power Ethernet MIB modules
+      o {{?RFC3621}}, Power Ethernet MIB modules
 
-      o {?RFC1628}}UPS Power Monitoring MIB module
+      o {{?RFC1628}}UPS Power Monitoring MIB module
 
       o LLDP MIB module and LLDP MED MIB module
    
