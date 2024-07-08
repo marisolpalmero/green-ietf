@@ -21,6 +21,10 @@ author:
     fullname: Qin Wu
     org: Huawei
     email: bill.wu@huawei.com
+  -
+    fullname: Marisol Palmero
+    org: Cisco
+    email: mpalmero@cisco.com
 
 contributor:
   -
@@ -289,6 +293,8 @@ informative:
       - less focus on the battery management (as batteries haves some self-optimization features these days)
 
       - less focus on the Power over Ethernet management
+
+      - extension of the EMAN framework
 
 # General Considerations Related to Energy Management
 
@@ -1174,7 +1180,6 @@ informative:
 	derived ones => we have energy metrics => we might new performance (for ex: traffic/energy)
 	temperature? it should be somewhere else 
    new: standard for carbon reporting, making it easy for global reporting. It is important to know what network devices are consuming, i.e. solar power, wind power, cogeneration, etc.
-
    new: lifecycle metrics, related to manufacturing energy cost, transport, recyclability and end of life disposal impact. This information today is not part of the day to day operations, but it is considered as part of sustainable strategy related to energy efficiency.
 
 - do we need new power states? Maybe not but we need to explain the mapping of existing energy efficient features
@@ -1186,7 +1191,7 @@ informative:
 
  => Notion of intended/applied like NMDA in YANG
 
-- Enhance EMAN framework, to support a more robust and comprehensive Energy Efficiency Strategy. Let devices report whatever they can using existing interfaces, without waiting until they implement new capabilities determined by new or existing standards. Including the capability to integrate with external data sources, such as vendor datasheets that provide energy consumption information from various entities. Additionally, it encompasses the inclusion of metadata that cannot be directly implemented on network devices. Examples of such metadata are the origin of the energy (e.g., whether it is sourced from renewable resources) and the carbon emission factor specific to the location of the network entity.
+- Enhance EMAN framework, to support a more robust and comprehensive Energy Efficiency Strategy. Letting devices report whatever they can, using existing interfaces, without waiting until they implement new capabilities determined by new or existing standards. Including the capability to integrate with external data sources, such as vendor datasheets that provide energy consumption information. Additionally, to encompass the inclusion of metadata that cannot be directly implemented on network devices. Examples of such metadata are the origin of the energy (e.g., whether it is sourced from renewable resources) and the carbon emission factor specific to the location of the network entity.
 
 - Out of scope for the short term approach of EMAN framework enhancements, but might be good to call it out, EMAN doesn't include mechanisms for integrating occupancy sensors or user behavior analytics, which can be critical for optimizing HVAC, lighting, and other systems for energy efficiency. This is a key aspect for Smart Buildings and Data Centers energy efficiency metrics. 
 
