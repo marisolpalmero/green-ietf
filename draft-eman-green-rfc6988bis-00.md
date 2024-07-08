@@ -223,12 +223,17 @@ informative:
    "energy" and "power".  These terms are generic and are used in
    generated terms such as "energy-saving", "low-power", etc.
 
+   Embedded carbon
+   
    Energy
 
       Energy is the capacity of a system to do work.  As used by
       electric utilities, it is generally a reference to electrical
       energy and is measured in kilowatt-hours (kWh) [IEEE-100].
 
+   Embedded carbon
+      Energy in TCO2e unit (also known as Embodied Energy) associated with the upstream (before operation) stages of a product’s life.
+      
    Power
 
       Power is the time rate at which energy is emitted, transferred, or
