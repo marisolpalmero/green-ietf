@@ -55,7 +55,7 @@ informative:
    Energy Management, taking RFC6988 as a starting point. Eleven years after the RFC 6988 publication, this document re-evaluates the requirements. The requirements defined in this document are concerned with discovery functions, monitoring functions as well as control functions.
    Discovery functions include identifying energy-managed network, devices and
    their components, discovery of inventory of power components 
-   capabilities, optimization control capabilities, nominal condition use. Monitoring functions include monitoring their Power States, Power Attributes, energy consumption, energy
+   capabilities, optimization control capabilities, nominal condition use. Monitoring functions include monitoring their Power States, Power Attributes, energy consumption, network performance, energy
    efficiency metrics.  Control functions include such functions as controlling energy saving
    and optimization functions and Power State of energy-managed devices and their components.
 
