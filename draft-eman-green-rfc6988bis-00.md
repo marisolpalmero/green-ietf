@@ -21,6 +21,10 @@ author:
     fullname: Qin Wu
     org: Huawei
     email: bill.wu@huawei.com
+  -
+    fullname: Marisol Palmero
+    org: Cisco
+    email: mpalmero@cisco.com
 
 contributor:
   -
