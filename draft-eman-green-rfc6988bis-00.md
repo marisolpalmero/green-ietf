@@ -101,7 +101,7 @@ informative:
    Due to some limitations regarding Writeable MIB module, one IESG statement published in 
    2014 encourages the use the NETCONF/YANG standards for configuration. From the above YANG modules 
    list, 3 MIB    modules (Entity MIB module, Entity Sensor MIB module, Entity State MIB module) have 
-   been converted ino the "YANG Data Model for Hardware Management" {?RFC8348}}.
+   been converted into the "YANG Data Model for Hardware Management" {?RFC8348}}.
 
    However, the Power and Energy Monitoring and Control MIB modules have not been converted yet into 
    YANG modules. 
@@ -126,7 +126,7 @@ informative:
 ## Background
 
    With rising energy costs and an increasing awareness of the
-   environemntal impact of running information technology equipment, Energy
+   environmental impact of running information technology equipment, Energy
    efficiency Management functions and management interfaces are becoming
    an additional basic requirement for network management systems and devices
    connected to a network.
@@ -427,7 +427,7 @@ informative:
    o discovering power relationship between component within network device and across network devices.
    
    o  support additional energy efficiency metrics for energy efficiency monitoring, e.g., heat consumption, energy
-       efficiency ratio, maximum wake up time, etc
+       efficiency ratio, maximum wake up time, etc.
 
    o  support separation of desired power state and actual power state and optimize energy usage to allow update actual
        power state to match desired power state.
@@ -443,7 +443,7 @@ informative:
 
    Energy usage control and optimization is complementary to other energy-saving design, such
    as low-power electronics,  energy-efficient device design (for example, low-power modes for components), and
-   energy-efficient network architectures and is excercised using management interface.  Measurement of received and
+   energy-efficient network architectures and is exercised using management interface.  Measurement of received and
    provided energy can provide useful data for energy efficiency management.
 
 # Identification of Entities
@@ -483,9 +483,9 @@ informative:
 
 ## Identifying Entitiy Capabilities
 
-   The standard must provide means for discovering inventory of power components' their capabilities, optimization
+   The standard must provide means for discovering inventory of power components together with their capabilities, optimization
     control capabilities, nominal condition use.
-   In addition, The standard must provide means for disovering supported power state of each network device within the network
+   In addition, The standard must provide means for discovering supported power state of each network device within the network
    and power relationship between component within network device and across network devices.
 
 ## Persistence of Identifiers
@@ -505,9 +505,9 @@ informative:
 
    o  the network-id, link-id, node-id, port-id of the Network Topology YANG module {{?RFC8345}}
 
-   o  the ne-id, uuid of the network element and component-id, uuid of each component within the network element in Network Inventory YANG module {{?I-D.ietf-ivy-network-inventory-yang}}
+   o  the ne-id, Universal Unique IDentifier (UUID) of the network element and component-id, UUID of each component within the network element in Network Inventory YANG module {{?I-D.ietf-ivy-network-inventory-yang}}
 
-   o  the name, uuid of each hardware component in the Hardware YANG module {{?RFC8348}}
+   o  the name, UUID of each hardware component in the Hardware YANG module {{?RFC8348}}
 
 
    Generic means for reusing other entity identifiers must be provided.
@@ -830,7 +830,7 @@ informative:
 ## Energy
 
    The monitoring of electrical energy received or provided by an entity
-   is a core function of Energy Management.  Since energy is an
+   is a core function of Energy Management. Since energy is an
    accumulated quantity, it is always reported for a certain interval of
    time.  This can be, for example, the time from the last restart of
    the entity to the reporting time, the time from another past event to
@@ -864,10 +864,10 @@ informative:
 
 ### Power Gain Measurement
  
-  The standard must provide means for measuing power gain, which can
+  The standard must provide means for measuring power gain, which can
   be calculated by actual power to be consumed by the entity divided by the maximum
   power of the entity. In addition, the minimum power gain can also be 
-  meaured and reported.
+  measured and reported.
  
 ### Time Intervals
 
@@ -986,7 +986,7 @@ informative:
 
 ## Controlling energy saving and optimization functionalities
 
-  The standard must provide means for controling energy saving and
+  The standard must provide means for controlling energy saving and
   optimization functionalities and allocating the committed component resource
   (e.g., adjust fan speed, shutdown high speed interface) or committed device resource
   (e.g., multiple cards scheduling, multiple power module scheduling).
@@ -1048,7 +1048,7 @@ informative:
 
 ## Controlling Power States of Other Entities
 
-   RFC6988 allow some entitteis have control over Power States of other entities,
+   RFC6988 allow some entities have control over Power States of other entities,
    e.g., in Building automation case where a gateway to a building system may have
    the means to control the Power State of entities in the building that do not have
    an IP interface. 
@@ -1163,7 +1163,7 @@ informative:
    Brownlee, and to the EMAN working group chairs: Nevil Brownlee and
    Bruce Nordman.
    
-# Open Issues
+# Open Issues for the Creation of this Draft Version 00 (section to be removed)
 - DONE: rewrite the abstract and intro
 - DONE: YANG and not MIB
 - DONE: A standard must support the unique identification of entities
@@ -1175,28 +1175,19 @@ informative:
 - DONE: battery not important for green as a core component => could be added later       
 - DONE (but not complete) new section: diff compared to the old RFC
 - DONE: less focus on PoE
-- run the document through word for spelling mistakes
+- DONE: run the document through word for spelling mistakes
 - run through idnits
 
-- OPEN ISSUE FOR THE BOF: Do we need to keep a reference to the MIB object entPhysicalUUID (in section 4.4 from ENTITY-MIB v4) in case of legacy device (MIB)? 
-- OPEN ISSUE FOR THE BOF: the EMAN requirements and EMAN framework had a lot of emphasis on the "Reporting on Other Entities", typically smart PDU or PoE. Is this important? Should this be removed? 
-   This is text about "Sections 7 and 8 contain requirements specific to Energy Management.
-   Due to the nature of power supply, some monitoring and control
-   functions are not conducted by interacting with the entity of
-   interest but rather with other entities, for example, entities
-   upstream in a power distribution tree."
+ - new GREEN metrics? 
+   new: network-wide energy efficiency metric (like in Data Center)
+   derived ones => we have energy metrics => we might new performance (for ex: traffic/energy)
+   temperature? it should be somewhere else 
 
-"
-- new GREEN metrics? 
-	new: network-wide energy efficiency metric (like in Data Center)
-	derived ones => we have energy metrics => we might new performance (for ex: traffic/energy)
-	temperature? it should be somewhere else 
-   new: standard for carbon reporting, making it easy for global reporting. It is important to know what network devices are consuming, i.e. solar power, wind power, cogeneration, etc.
+- new: standard for carbon reporting, making it easy for global reporting. It is important to know what network devices are consuming, i.e. solar power, wind power, cogeneration, etc.
 
-   new: lifecycle information, related to manufacturing energy cost, transport, recyclability, and end of life disposal impact. This is part of what is also called "embedded carbon". This information today is not part of the run-time operations, but it is considered as part of the sustainable strategy related to energy efficiency. Please refer to ecodesign framework [(EU) 2024/1781] published in June by the European Commission.
+- new: lifecycle information, related to manufacturing energy cost, transport, recyclability, and end of life disposal impact. This is part of what is also called "embedded carbon". This information today is not part of the run-time operations, but it is considered as part of the sustainable strategy related to energy efficiency. Please refer to ecodesign framework [(EU) 2024/1781] published in June by the European Commission.
 
-- do we need new power states? Maybe not but we need to explain the mapping of existing energy efficient features
--    When an Energy Object is set to a particular Power State, the
+-  new:  When an Energy Object is set to a particular Power State, the
    represented device or component may be busy.  The Energy Object
    should set the desired Power State and then update the actual Power
    State when the device or component changes.  There are then two Power
@@ -1206,7 +1197,25 @@ informative:
 
 - Enhance EMAN framework, to support a more robust and comprehensive Energy Efficiency Strategy. Let devices report whatever they can using existing interfaces, without waiting until they implement new capabilities determined by new or existing standards. Including the capability to integrate with external data sources, such as vendor datasheets that provide energy consumption information from various entities. Additionally, it encompasses the inclusion of metadata that cannot be directly implemented on network devices. Examples of such metadata are the origin of the energy (e.g., whether it is sourced from renewable resources) and the carbon emission factor specific to the location of the network entity.
 
-- Out of scope for the short term approach of EMAN framework enhancements, but might be good to call it out, EMAN doesn't include mechanisms for integrating occupancy sensors or user behavior analytics, which can be critical for optimizing HVAC, lighting, and other systems for energy efficiency. This is a key aspect for Smart Buildings and Data Centers energy efficiency metrics. 
+
+# Open Issues to be Discussed at the BoF
+
+
+- OPEN ISSUE FOR THE BOF: Do we need to keep a reference to the MIB object entPhysicalUUID (in section 4.4 from ENTITY-MIB v4) in case of legacy device (MIB)? 
+
+- OPEN ISSUE FOR THE BOF: the EMAN requirements and EMAN framework had a lot of emphasis on the "Reporting on Other Entities", typically smart PDU or PoE. Is this important? Should this be removed? 
+   This is text about "Sections 7 and 8 contain requirements specific to Energy Management.
+   Due to the nature of power supply, some monitoring and control
+   functions are not conducted by interacting with the entity of
+   interest but rather with other entities, for example, entities
+   upstream in a power distribution tree."
+
+   Expressed differently:  Out of scope for the short term approach of EMAN framework enhancements, but might be good to call it out, EMAN doesn't include mechanisms for integrating occupancy sensors or user behavior analytics, which can be critical for optimizing HVAC, lighting, and other systems for energy efficiency. This is a key aspect for Smart Buildings and Data Centers energy efficiency metrics. 
+
+- OPEN ISSUE FOR THE BOF: 
+   It's not clear whether we need new Power State (Set)? Maybe not but we need to explain 
+   the mapping of existing energy efficient features to specific Power States
+
 
 
 

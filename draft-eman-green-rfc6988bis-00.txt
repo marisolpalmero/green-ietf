@@ -5,7 +5,9 @@
 green                                                          B. Claise
 Internet-Draft                                                     Q. Wu
 Intended status: Informational                                    Huawei
-Expires: 9 January 2025                                      8 July 2024
+Expires: 9 January 2025                                       M. Palmero
+                                                                   Cisco
+                                                             8 July 2024
 
 
  Requirements for Energy Efficiency Management, 11 years after the EMAN
@@ -51,9 +53,7 @@ Status of This Memo
 
 
 
-
-
-Claise & Wu              Expires 9 January 2025                 [Page 1]
+Claise, et al.           Expires 9 January 2025                 [Page 1]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Claise & Wu              Expires 9 January 2025                 [Page 2]
+Claise, et al.           Expires 9 January 2025                 [Page 2]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -165,7 +165,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                 [Page 3]
+Claise, et al.           Expires 9 January 2025                 [Page 3]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -184,13 +184,15 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
      9.2.  Isolation of Insufficiently Secure Entities . . . . . . .  27
      9.3.  Optional Restriction of Functions . . . . . . . . . . . .  28
    10. Acknowledgments . . . . . . . . . . . . . . . . . . . . . . .  28
-   11. Open Issues . . . . . . . . . . . . . . . . . . . . . . . . .  28
-   12. References  . . . . . . . . . . . . . . . . . . . . . . . . .  30
-     12.1.  Normative References . . . . . . . . . . . . . . . . . .  30
-     12.2.  Informative References . . . . . . . . . . . . . . . . .  31
-   13. Informative References  . . . . . . . . . . . . . . . . . . .  31
+   11. Open Issues for the Creation of this Draft Version 00 (section
+           to be removed)  . . . . . . . . . . . . . . . . . . . . .  28
+   12. Open Issues to be Discussed at the BoF  . . . . . . . . . . .  29
+   13. References  . . . . . . . . . . . . . . . . . . . . . . . . .  30
+     13.1.  Normative References . . . . . . . . . . . . . . . . . .  30
+     13.2.  Informative References . . . . . . . . . . . . . . . . .  31
+   14. Informative References  . . . . . . . . . . . . . . . . . . .  31
    Contributors  . . . . . . . . . . . . . . . . . . . . . . . . . .  32
-   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  32
+   Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  33
 
 1.  Introduction
 
@@ -219,9 +221,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-
-
-Claise & Wu              Expires 9 January 2025                 [Page 4]
+Claise, et al.           Expires 9 January 2025                 [Page 4]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -238,8 +238,8 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    statement published in 2014 encourages the use the NETCONF/YANG
    standards for configuration.  From the above YANG modules list, 3 MIB
    modules (Entity MIB module, Entity Sensor MIB module, Entity State
-   MIB module) have been converted ino the "YANG Data Model for Hardware
-   Management" {?RFC8348}}.
+   MIB module) have been converted into the "YANG Data Model for
+   Hardware Management" {?RFC8348}}.
 
    However, the Power and Energy Monitoring and Control MIB modules have
    not been converted yet into YANG modules.
@@ -267,7 +267,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 1.3.  Background
 
    With rising energy costs and an increasing awareness of the
-   environemntal impact of running information technology equipment,
+   environmental impact of running information technology equipment,
    Energy efficiency Management functions and management interfaces are
    becoming an additional basic requirement for network management
    systems and devices connected to a network.
@@ -277,7 +277,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                 [Page 5]
+Claise, et al.           Expires 9 January 2025                 [Page 5]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -333,7 +333,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                 [Page 6]
+Claise, et al.           Expires 9 January 2025                 [Page 6]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -389,7 +389,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                 [Page 7]
+Claise, et al.           Expires 9 January 2025                 [Page 7]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -445,7 +445,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                 [Page 8]
+Claise, et al.           Expires 9 January 2025                 [Page 8]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -501,7 +501,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                 [Page 9]
+Claise, et al.           Expires 9 January 2025                 [Page 9]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -557,7 +557,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 10]
+Claise, et al.           Expires 9 January 2025                [Page 10]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -613,7 +613,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 11]
+Claise, et al.           Expires 9 January 2025                [Page 11]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -636,7 +636,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
    o support additional energy efficiency metrics for energy efficiency
    monitoring, e.g., heat consumption, energy efficiency ratio, maximum
-   wake up time, etc
+   wake up time, etc.
 
    o support separation of desired power state and actual power state
    and optimize energy usage to allow update actual power state to match
@@ -655,7 +655,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    Energy usage control and optimization is complementary to other
    energy-saving design, such as low-power electronics, energy-efficient
    device design (for example, low-power modes for components), and
-   energy-efficient network architectures and is excercised using
+   energy-efficient network architectures and is exercised using
    management interface.  Measurement of received and provided energy
    can provide useful data for energy efficiency management.
 
@@ -669,7 +669,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 12]
+Claise, et al.           Expires 9 January 2025                [Page 12]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -708,11 +708,11 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 4.2.  Identifying Entitiy Capabilities
 
    The standard must provide means for discovering inventory of power
-   components' their capabilities, optimization control capabilities,
-   nominal condition use.  In addition, The standard must provide means
-   for disovering supported power state of each network device within
-   the network and power relationship between component within network
-   device and across network devices.
+   components together with their capabilities, optimization control
+   capabilities, nominal condition use.  In addition, The standard must
+   provide means for discovering supported power state of each network
+   device within the network and power relationship between component
+   within network device and across network devices.
 
 4.3.  Persistence of Identifiers
 
@@ -725,7 +725,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 13]
+Claise, et al.           Expires 9 January 2025                [Page 13]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -743,11 +743,12 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    o the network-id, link-id, node-id, port-id of the Network Topology
    YANG module [RFC8345]
 
-   o the ne-id, uuid of the network element and component-id, uuid of
-   each component within the network element in Network Inventory YANG
-   module [I-D.ietf-ivy-network-inventory-yang]
+   o the ne-id, Universal Unique IDentifier (UUID) of the network
+   element and component-id, UUID of each component within the network
+   element in Network Inventory YANG module
+   [I-D.ietf-ivy-network-inventory-yang]
 
-   o the name, uuid of each hardware component in the Hardware YANG
+   o the name, UUID of each hardware component in the Hardware YANG
    module [RFC8348]
 
    Generic means for reusing other entity identifiers must be provided.
@@ -780,8 +781,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-
-Claise & Wu              Expires 9 January 2025                [Page 14]
+Claise, et al.           Expires 9 January 2025                [Page 14]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -837,7 +837,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 15]
+Claise, et al.           Expires 9 January 2025                [Page 15]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -893,7 +893,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 16]
+Claise, et al.           Expires 9 January 2025                [Page 16]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -949,7 +949,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 17]
+Claise, et al.           Expires 9 January 2025                [Page 17]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -1005,7 +1005,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 18]
+Claise, et al.           Expires 9 January 2025                [Page 18]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -1061,7 +1061,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 19]
+Claise, et al.           Expires 9 January 2025                [Page 19]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -1117,7 +1117,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 20]
+Claise, et al.           Expires 9 January 2025                [Page 20]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -1165,15 +1165,15 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 5.5.3.  Power Gain Measurement
 
-   The standard must provide means for measuing power gain, which can be
-   calculated by actual power to be consumed by the entity divided by
+   The standard must provide means for measuring power gain, which can
+   be calculated by actual power to be consumed by the entity divided by
    the maximum power of the entity.  In addition, the minimum power gain
-   can also be meaured and reported.
+   can also be measured and reported.
 
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 21]
+Claise, et al.           Expires 9 January 2025                [Page 21]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -1229,7 +1229,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 22]
+Claise, et al.           Expires 9 January 2025                [Page 22]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -1285,7 +1285,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 23]
+Claise, et al.           Expires 9 January 2025                [Page 23]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -1312,7 +1312,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 6.3.  Controlling energy saving and optimization functionalities
 
-   The standard must provide means for controling energy saving and
+   The standard must provide means for controlling energy saving and
    optimization functionalities and allocating the committed component
    resource (e.g., adjust fan speed, shutdown high speed interface) or
    committed device resource (e.g., multiple cards scheduling, multiple
@@ -1341,7 +1341,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 24]
+Claise, et al.           Expires 9 January 2025                [Page 24]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -1384,7 +1384,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 8.1.  Controlling Power States of Other Entities
 
-   RFC6988 allow some entitteis have control over Power States of other
+   RFC6988 allow some entities have control over Power States of other
    entities, e.g., in Building automation case where a gateway to a
    building system may have the means to control the Power State of
    entities in the building that do not have an IP interface.
@@ -1397,7 +1397,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 25]
+Claise, et al.           Expires 9 January 2025                [Page 25]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -1453,7 +1453,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 26]
+Claise, et al.           Expires 9 January 2025                [Page 26]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -1509,7 +1509,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 27]
+Claise, et al.           Expires 9 January 2025                [Page 27]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
@@ -1534,7 +1534,8 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    Brownlee, and to the EMAN working group chairs: Nevil Brownlee and
    Bruce Nordman.
 
-11.  Open Issues
+11.  Open Issues for the Creation of this Draft Version 00 (section to
+     be removed)
 
    *  DONE: rewrite the abstract and intro
 
@@ -1555,50 +1556,38 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
    *  DONE: less focus on PoE
 
-   *  run the document through word for spelling mistakes
+   *  DONE: run the document through word for spelling mistakes
 
    *  run through idnits
 
-   *  OPEN ISSUE FOR THE BOF: Do we need to keep a reference to the MIB
-      object entPhysicalUUID (in section 4.4 from ENTITY-MIB v4) in case
-      of legacy device (MIB)?
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 28]
+
+
+Claise, et al.           Expires 9 January 2025                [Page 28]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
-   *  OPEN ISSUE FOR THE BOF: the EMAN requirements and EMAN framework
-      had a lot of emphasis on the "Reporting on Other Entities",
-      typically smart PDU or PoE.  Is this important?  Should this be
-      removed?  This is text about "Sections 7 and 8 contain
-      requirements specific to Energy Management.  Due to the nature of
-      power supply, some monitoring and control functions are not
-      conducted by interacting with the entity of interest but rather
-      with other entities, for example, entities upstream in a power
-      distribution tree."
+   *  new GREEN metrics?  new: network-wide energy efficiency metric
+      (like in Data Center) derived ones => we have energy metrics => we
+      might new performance (for ex: traffic/energy) temperature? it
+      should be somewhere else
 
-   " - new GREEN metrics?  new: network-wide energy efficiency metric
-   (like in Data Center) derived ones => we have energy metrics => we
-   might new performance (for ex: traffic/energy) temperature? it should
-   be somewhere else new: standard for carbon reporting, making it easy
-   for global reporting.  It is important to know what network devices
-   are consuming, i.e. solar power, wind power, cogeneration, etc.
+   *  new: standard for carbon reporting, making it easy for global
+      reporting.  It is important to know what network devices are
+      consuming, i.e. solar power, wind power, cogeneration, etc.
 
-   new: lifecycle information, related to manufacturing energy cost,
-   transport, recyclability, and end of life disposal impact.  This is
-   part of what is also called "embedded carbon".  This information
-   today is not part of the run-time operations, but it is considered as
-   part of the sustainable strategy related to energy efficiency.
-   Please refer to ecodesign framework [(EU) 2024/1781] published in
-   June by the European Commission.
+   *  new: lifecycle information, related to manufacturing energy cost,
+      transport, recyclability, and end of life disposal impact.  This
+      is part of what is also called "embedded carbon".  This
+      information today is not part of the run-time operations, but it
+      is considered as part of the sustainable strategy related to
+      energy efficiency.  Please refer to ecodesign framework [(EU)
+      2024/1781] published in June by the European Commission.
 
-   *  do we need new power states?  Maybe not but we need to explain the
-      mapping of existing energy efficient features
-
-   *  When an Energy Object is set to a particular Power State, the
+   *  new: When an Energy Object is set to a particular Power State, the
       represented device or component may be busy.  The Energy Object
       should set the desired Power State and then update the actual
       Power State when the device or component changes.  There are then
@@ -1619,24 +1608,45 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
       the carbon emission factor specific to the location of the network
       entity.
 
+12.  Open Issues to be Discussed at the BoF
+
+   *  OPEN ISSUE FOR THE BOF: Do we need to keep a reference to the MIB
+      object entPhysicalUUID (in section 4.4 from ENTITY-MIB v4) in case
+      of legacy device (MIB)?
+
+   *  OPEN ISSUE FOR THE BOF: the EMAN requirements and EMAN framework
+      had a lot of emphasis on the "Reporting on Other Entities",
+      typically smart PDU or PoE.  Is this important?  Should this be
+      removed?  This is text about "Sections 7 and 8 contain
 
 
-Claise & Wu              Expires 9 January 2025                [Page 29]
+
+Claise, et al.           Expires 9 January 2025                [Page 29]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
-   *  Out of scope for the short term approach of EMAN framework
-      enhancements, but might be good to call it out, EMAN doesn't
-      include mechanisms for integrating occupancy sensors or user
-      behavior analytics, which can be critical for optimizing HVAC,
-      lighting, and other systems for energy efficiency.  This is a key
-      aspect for Smart Buildings and Data Centers energy efficiency
-      metrics.
+      requirements specific to Energy Management.  Due to the nature of
+      power supply, some monitoring and control functions are not
+      conducted by interacting with the entity of interest but rather
+      with other entities, for example, entities upstream in a power
+      distribution tree."
 
-12.  References
+      Expressed differently: Out of scope for the short term approach of
+      EMAN framework enhancements, but might be good to call it out,
+      EMAN doesn't include mechanisms for integrating occupancy sensors
+      or user behavior analytics, which can be critical for optimizing
+      HVAC, lighting, and other systems for energy efficiency.  This is
+      a key aspect for Smart Buildings and Data Centers energy
+      efficiency metrics.
 
-12.1.  Normative References
+   *  OPEN ISSUE FOR THE BOF: It's not clear whether we need new Power
+      State (Set)?  Maybe not but we need to explain the mapping of
+      existing energy efficient features to specific Power States
+
+13.  References
+
+13.1.  Normative References
 
    [ANSI-TIA-1057] Telecommunications Industry Association, ANSI- TIA-
    1057-2006, "TIA Standard -- Telecommunications -- IP Telephony
@@ -1661,6 +1671,17 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    [IEEE-100] IEEE, "The Authoritative Dictionary of IEEE Standards
    Terms, IEEE 100, Seventh Edition", December 2000.
 
+
+
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 30]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
+
    [IEEE-1621] Institute of Electrical and Electronics Engineers, "IEEE
    1621-2004 - IEEE Standard for User Interface Elements in Power
    Control of Electronic Devices Employed in Office/Consumer
@@ -1674,14 +1695,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    for Telecommunication Equipment: Methodology for Measurement and
    Reporting for Router and Ethernet Switch Products", 2013.
 
-
-
-
-Claise & Wu              Expires 9 January 2025                [Page 30]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
-
    [ETSI-ES-203-136] ETSI, "ETSI ES 203 136: Environmental Engineering
    (EE); Measurement methods for energy efficiency of router and switch
    equipment", 2017, <https://www.etsi.org/deliver/
@@ -1692,7 +1705,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    https://www.itu.int/rec/T-REC-L.1310/en (https://www.itu.int/rec/T-
    REC-L.1310/en).
 
-12.2.  Informative References
+13.2.  Informative References
 
    [IEC.60050] International Electrotechnical Commission, "Electropedia:
    The World's Online Electrotechnical Vocabulary", 2013,
@@ -1704,7 +1717,7 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
    Facsimile and Leased Circuits -- Telecommunications Management
    Network - TMN management functions", February 2000.
 
-13.  Informative References
+14.  Informative References
 
    [I-D.ietf-ivy-network-inventory-yang]
               Yu, C., Belotti, S., Bouquier, J., Peruzzini, F., and P.
@@ -1713,6 +1726,17 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
               inventory-yang-03, 7 July 2024,
               <https://datatracker.ietf.org/doc/html/draft-ietf-ivy-
               network-inventory-yang-03>.
+
+
+
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 31]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
 
    [RFC3411]  Harrington, D., Presuhn, R., and B. Wijnen, "An
               Architecture for Describing Simple Network Management
@@ -1729,14 +1753,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
               and A. Bierman, Ed., "Network Configuration Protocol
               (NETCONF)", RFC 6241, DOI 10.17487/RFC6241, June 2011,
               <https://www.rfc-editor.org/rfc/rfc6241>.
-
-
-
-
-Claise & Wu              Expires 9 January 2025                [Page 31]
-
-Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
-
 
    [RFC8345]  Clemm, A., Medved, J., Varga, R., Bahadur, N.,
               Ananthakrishnan, H., and X. Liu, "A YANG Data Model for
@@ -1770,6 +1786,14 @@ Contributors
    Email: Thomas.Dietz@neclab.eu
 
 
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 32]
+
+Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
+
+
 Authors' Addresses
 
    Benoit Claise
@@ -1782,6 +1806,9 @@ Authors' Addresses
    Email: bill.wu@huawei.com
 
 
+   Marisol Palmero
+   Cisco
+   Email: mpalmero@cisco.com
 
 
 
@@ -1789,4 +1816,33 @@ Authors' Addresses
 
 
 
-Claise & Wu              Expires 9 January 2025                [Page 32]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Claise, et al.           Expires 9 January 2025                [Page 33]
