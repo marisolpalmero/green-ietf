@@ -123,6 +123,8 @@ informative:
 
       - Less focus on the Power over Ethernet management
 
+      - A focus on reporting lifecycle management, considering energy and transformation towards carbon awareness 
+
 ## Background
 
    With rising energy costs and an increasing awareness of the
@@ -963,6 +965,34 @@ informative:
 
    The standard should provide means for reporting the number of values
    of a time series that can be stored for later reporting.
+
+# Reporting on Lifecycle Management
+
+   Lifecycle information related to manufacturing energy costs, transport, 
+   recyclability, and end-of-life disposal impacts is part of what is 
+   called "embedded carbon." This information is considered to be an 
+   estimated value, which might not be implemented today in the network 
+   devices. It might be part of the vendor information, and to be collected 
+   from datasheets or databases. In accordance with ISO 14040/44, this 
+   information should be considered as part of the sustainable strategy 
+   related to energy efficiency. Also, refer to the ecodesign framework 
+   [(EU) 2024/1781] published in June by the European Commission.
+
+## Carbon Reporting
+
+   To report on carbon equivalents for global reporting, it is important 
+   to correlate the location where the specific entity/network element 
+   is operating with the corresponding carbon factor. Refer to the world 
+   emission factor from the International Energy Agency (IEA), electricity 
+   maps applications that reflect the carbon intensity of the electricity 
+   consumed, etc.
+
+## Energy Mix
+
+   To facilitate carbon reporting for global reporting, it is important to 
+   know the type of energy that network devices are consuming, such as 
+   solar energy, wind energy, cogeneration, etc.
+
 
 # Control of Entities
 
