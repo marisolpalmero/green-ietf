@@ -992,7 +992,7 @@ informative:
    To facilitate carbon reporting for global reporting, it is important to 
    know the type of energy that network devices are consuming, such as 
    solar energy, wind energy, cogeneration, etc.
-
+   
 
 # Control of Entities
 
