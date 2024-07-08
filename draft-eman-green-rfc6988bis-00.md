@@ -1168,14 +1168,21 @@ informative:
 - run the document through word for spelling mistakes
 
 - OPEN ISSUE FOR THE BOF: Do we need to keep a reference to the MIB object entPhysicalUUID (in section 4.4 from ENTITY-MIB v4) in case of legacy device (MIB)? 
-- OPEN ISSUE FOR THE BOF: the EMAN requirements and EMAN framework had a lot of emphasis on the "Reporting on Other Entities", typically smart PDU or PoE. Is this important.
+- OPEN ISSUE FOR THE BOF: the EMAN requirements and EMAN framework had a lot of emphasis on the "Reporting on Other Entities", typically smart PDU or PoE. Is this important? Should this be removed? 
+   This is text about "Sections 7 and 8 contain requirements specific to Energy Management.
+   Due to the nature of power supply, some monitoring and control
+   functions are not conducted by interacting with the entity of
+   interest but rather with other entities, for example, entities
+   upstream in a power distribution tree."
+
+"
 - new GREEN metrics? 
 	new: network-wide energy efficiency metric (like in Data Center)
 	derived ones => we have energy metrics => we might new performance (for ex: traffic/energy)
 	temperature? it should be somewhere else 
    new: standard for carbon reporting, making it easy for global reporting. It is important to know what network devices are consuming, i.e. solar power, wind power, cogeneration, etc.
 
-   new: lifecycle metrics, related to manufacturing energy cost, transport, recyclability and end of life disposal impact. This information today is not part of the day to day operations, but it is considered as part of sustainable strategy related to energy efficiency.
+   new: lifecycle information, related to manufacturing energy cost, transport, recyclability, and end of life disposal impact. This is part of what is also called "embedded carbon". This information today is not part of the run-time operations, but it is considered as part of the sustainable strategy related to energy efficiency. Please refer to ecodesign framework [(EU) 2024/1781] published in June by the European Commission.
 
 - do we need new power states? Maybe not but we need to explain the mapping of existing energy efficient features
 -    When an Energy Object is set to a particular Power State, the
