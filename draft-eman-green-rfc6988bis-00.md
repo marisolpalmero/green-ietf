@@ -52,16 +52,26 @@ informative:
 --- abstract
 
    This document defines requirements for standards specifications for
-   Energy Management, taking RFC6988 as a starting point. Eleven years after the RFC 6988 publication, this document re-evaluates the requirements. The requirements defined in this document are concerned with discovery functions, monitoring functions as well as control functions.
-   Discovery functions include identifying energy-managed network, devices and
-   their components, discovery of inventory of power components 
-   capabilities, optimization control capabilities, nominal condition use. Monitoring functions include monitoring their Power States, Power Attributes, energy consumption, network performance, energy
-   efficiency metrics.  Control functions include such functions as controlling energy saving
-   and optimization functions and Power State of energy-managed devices and their components.
+   Energy Management, taking RFC6988 as a starting point. Eleven years after 
+   the RFC 6988 publication, this document re-evaluates the requirements. 
+   The requirements defined in this document are concerned with discovery f
+   unctions, monitoring functions as well as control functions.
+   Discovery functions include identifying energy-managed network, devices 
+   and their components, discovery of inventory of power components 
+   capabilities, optimization control capabilities, nominal condition use. M
+   onitoring functions include monitoring their Power States, Power Attributes, 
+   energy consumption, network performance, energy efficiency metrics.  Control 
+   functions include such functions as controlling energy saving and optimization 
+   functions and Power State of energy-managed devices and their components.
 
    This document does not specify the features that must be implemented
    by compliant implementations but rather lists features that must be
    supported by standards for Energy efficiency Management.
+
+   Discussion Venues
+
+   Source of this draft and an issue tracker can be found at 
+   https://github.com/bclaise/green-ietf 
 
 --- middle
 
@@ -226,8 +236,8 @@ informative:
    generated terms such as "energy-saving", "low-power", etc.
  
    Embedded carbon
-  
-      The amount of GHG emissions associated with upstream (before operation) stages of a product’s life
+      The amount of GHG emissions associated with upstream (before operation) 
+      stages of a product’s life
 
    Embedded carbon
       Energy in TCO2e unit (also known as Embodied Energy) associated with the 
@@ -870,7 +880,12 @@ informative:
   [ITUT-L.1310], [ATIS-0600015.03.2013] provide methodology and test
   procedure for measuring such energy efficiency related metrics, which
   is defined as the throughput forwarded by 1 watt. The traffic loads and
-  the weighted multipliers need to be clearly established in advance.
+  the weighted multipliers need to be clearly established in advance. 
+
+  Note that, based on the specific optimization policy (throughput, heat, 
+  energy source, etc.), different derived metrics should be computed at 
+  the controller level.
+
 
 ### Power Gain Measurement
  
@@ -1016,18 +1031,25 @@ informative:
 
    The standard must provide means for provisioning Power States of entities.
 
-## Controlling Power Supply
+   When an Energy Object is set to a particular Power State, the
+   represented device or component may be busy.  The Energy Object
+   should set the desired Power State and then update the actual Power
+   State when the device or component changes. The standard must 
+   provide means to report the intented and applied Power States,
+   with the Network Management Datastore Architecture (NMDA) {{?RFC8342}}
+
+## Controlling Power SupplyProvisioning 
 
    The standard must provide means for switching a power supply off or
    turning a power supply on at Power Interfaces providing power to one
    or more devices.
 
-## Controlling energy saving and optimization functionalities
+## Controlling Energy Saving and Optimization Functionalities
 
   The standard must provide means for controlling energy saving and
   optimization functionalities and allocating the committed component resource
-  (e.g., adjust fan speed, shutdown high speed interface) or committed device resource
-  (e.g., multiple cards scheduling, multiple power module scheduling).
+  (e.g., adjust fan speed, shutdown high speed interface) or committed device
+  resource (e.g., multiple cards scheduling, multiple power module scheduling).
   
   In addition, the standard must provide means to support both local management and
   network wide management based on energy saving functionality.
@@ -1191,7 +1213,7 @@ informative:
 
 # Acknowledgments
 
-   RFC 6988 Ackowledgement. 
+   RFC 6988 Ackowledgement.
    The authors would like to thank Ralf Wolter for his first essay on
    this document.  Many thanks to William Mielke, John Parello,
    JinHyeock Choi, Georgios Karagiannis, and Michael Suchoff for their
@@ -1202,42 +1224,50 @@ informative:
    Brownlee, and to the EMAN working group chairs: Nevil Brownlee and
    Bruce Nordman. 
    
-# Open Issues for the Creation of this Draft Version 00 (section to be removed)
-
- - new GREEN metrics? 
-   new: network-wide energy efficiency metric (like in Data Center)
-   derived ones => we have energy metrics => we might new performance (for ex: traffic/energy)
-   temperature? it should be somewhere else 
-
-
--  new:  When an Energy Object is set to a particular Power State, the
-   represented device or component may be busy.  The Energy Object
-   should set the desired Power State and then update the actual Power
-   State when the device or component changes.  There are then two Power
-   State (Class) control attributes: actual and requested.
-    => Notion of intended/applied like NMDA in YANG
-
-- Enhance EMAN framework, to support a more robust and comprehensive Energy Efficiency Strategy. Let devices report whatever they can using existing interfaces, without waiting until they implement new capabilities determined by new or existing standards. Including the capability to integrate with external data sources, such as vendor datasheets that provide energy consumption information from various entities. Additionally, it encompasses the inclusion of metadata that cannot be directly implemented on network devices. Examples of such metadata are the origin of the energy (e.g., whether it is sourced from renewable resources) and the carbon emission factor specific to the location of the network entity.
-
 
 # Open Issues to be Discussed at the BoF
 
-   o EMAN "eco system" includes many MIBs. Which one are largely deployed ? Will they/How can they benefit of the GREEN works ?
+   o EMAN "eco system" includes many MIBs. Which one are largely deployed?
+   Will they/How can they benefit of the GREEN works ?
 
-   o Battery use cases migh be different 10 years after. Should it be addressed in a future charter? So far the decision is no
+   o Battery use cases migh be different 10 years after. Should it be 
+   addressed in a future charter? So far the decision is no
 
-   o Do we need to keep a reference to the MIB object entPhysicalUUID (in section 4.4 from ENTITY-MIB v4) in case of legacy device (MIB)? 
+   o Do we need to keep a reference to the MIB object entPhysicalUUID 
+   (in section 4.4 from ENTITY-MIB v4) in case of legacy device (MIB)? 
 
-   o The EMAN requirements and EMAN framework had a lot of emphasis on the "Reporting on Other Entities", typically smart PDU or PoE. Is this important?
-   Should this be removed? Should it be addressed in a future charter?
-   This is text about "Sections 7 and 8 contain requirements specific to Energy Management. Due to the nature of power supply, some monitoring and control
-   functions are not conducted by interacting with the entity of
-   interest but rather with other entities, for example, entities
-   upstream in a power distribution tree."
+   o The EMAN requirements and EMAN framework had a lot of emphasis on t
+   he "Reporting on Other Entities", typically smart PDU or PoE. 
+   Is this important? Should this be removed? Should it be addressed 
+   in a future charter?
+   This is text about "Sections 7 and 8 contain requirements specific 
+   to Energy Management. Due to the nature of power supply, some 
+   monitoring and control functions are not conducted by interacting 
+   with the entity of interest but rather with other entities, for 
+   example, entities upstream in a power distribution tree."
 
-      Expressed differently: Out of scope for the short term approach of EMAN framework enhancements, but might be good to call it out, EMAN doesn't include mechanisms for integrating occupancy sensors or user behavior analytics, which can be critical for optimizing HVAC, lighting, and other systems for energy efficiency. This is a key aspect for Smart Buildings and Data Centers energy efficiency metrics. 
+   Expressed differently: Out of scope for the short term approach of 
+   EMAN framework enhancements, but might be good to call it out, EMAN 
+   doesn't include mechanisms for integrating occupancy sensors or user 
+   behavior analytics, which can be critical for optimizing HVAC, l
+   ighting, and other systems for energy efficiency. This is a key 
+   aspect for Smart Buildings and Data Centers energy efficiency metrics. 
 
-   o It's not clear whether we need new Power State (Set)? Maybe not but we need to explain the mapping of existing energy efficient features to specific Power States
+   o It's not clear whether we need new Power State (Set)? Maybe not but 
+   we need to explain the mapping of existing energy efficient features to 
+   specific Power States.
+
+   o There are currently two "Embedded Carbon" definitions. Pick one.
+
+   o Enhance EMAN framework, to support a more robust and comprehensive 
+   Energy Efficiency Strategy. Let devices report whatever they can using 
+   existing interfaces, without waiting until they implement new capabilities 
+   determined by new or existing standards. Including the capability to 
+   integrate with external data sources (for example, for devices that don't 
+   have the capability or reporting any energy-related metrcis) such as vendor 
+   datasheets that provide energy consumption. Use case => upgrading a device 
+   for better Energy Efficiency Management. Not sure whether framework-related 
+   requirements should be covered here. 
 
 
 # References
