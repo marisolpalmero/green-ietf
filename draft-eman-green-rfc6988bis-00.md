@@ -228,15 +228,16 @@ informative:
    Embedded carbon
   
       The amount of GHG emissions associated with upstream (before operation) stages of a product’s life
+
+   Embedded carbon
+      Energy in TCO2e unit (also known as Embodied Energy) associated with the 
+      upstream (before operation) stages of a product's life.
        
    Energy
 
       Energy is the capacity of a system to do work.  As used by
       electric utilities, it is generally a reference to electrical
       energy and is measured in kilowatt-hours (kWh) [IEEE-100].
-
-   Embedded carbon
-      Energy in TCO2e unit (also known as Embodied Energy) associated with the upstream (before operation) stages of a product’s life.
       
    Power
 
@@ -1201,19 +1202,6 @@ informative:
    Bruce Nordman.
    
 # Open Issues for the Creation of this Draft Version 00 (section to be removed)
-- DONE: rewrite the abstract and intro
-- DONE: YANG and not MIB
-- DONE: A standard must support the unique identification of entities
-  => 4.4.  Using Entity Identifiers of Existing MIB Modules, changed from MIB to YANG
-  => hardware YANG RFC 8348 (replacement for ENTITY-MIB v4
-  DONE: a new requirement for the unique id: the link with the digital map, inventory
-	so the unique Ids are the ones from RFC8345 and a consequence IVY (and NMOP)
-	NetworkId, NodeId, LinkId, and interfaceId
-- DONE: battery not important for green as a core component => could be added later       
-- DONE (but not complete) new section: diff compared to the old RFC
-- DONE: less focus on PoE
-- DONE: run the document through word for spelling mistakes
-- run through idnits
 
  - new GREEN metrics? 
    new: network-wide energy efficiency metric (like in Data Center)
@@ -1229,45 +1217,34 @@ informative:
    should set the desired Power State and then update the actual Power
    State when the device or component changes.  There are then two Power
    State (Class) control attributes: actual and requested.
-
- => Notion of intended/applied like NMDA in YANG
+    => Notion of intended/applied like NMDA in YANG
 
 - Enhance EMAN framework, to support a more robust and comprehensive Energy Efficiency Strategy. Let devices report whatever they can using existing interfaces, without waiting until they implement new capabilities determined by new or existing standards. Including the capability to integrate with external data sources, such as vendor datasheets that provide energy consumption information from various entities. Additionally, it encompasses the inclusion of metadata that cannot be directly implemented on network devices. Examples of such metadata are the origin of the energy (e.g., whether it is sourced from renewable resources) and the carbon emission factor specific to the location of the network entity.
 
 
 # Open Issues to be Discussed at the BoF
 
-- OPEN ISSUE FOR THE BOF: EMAN "eco system" includes many MIBs. Which one are largely deployed ? Will they/How can they benefit of the GREEN works ?
+   o EMAN "eco system" includes many MIBs. Which one are largely deployed ? Will they/How can they benefit of the GREEN works ?
 
-- OPEN ISSUE FOR THE BOF: Battery use cases migh be different 10 years after. Should it be addressed in a future charter?
+   o Battery use cases migh be different 10 years after. Should it be addressed in a future charter? So far the decision is no
 
-- OPEN ISSUE FOR THE BOF: Do we need to keep a reference to the MIB object entPhysicalUUID (in section 4.4 from ENTITY-MIB v4) in case of legacy device (MIB)? 
+   o Do we need to keep a reference to the MIB object entPhysicalUUID (in section 4.4 from ENTITY-MIB v4) in case of legacy device (MIB)? 
 
-- OPEN ISSUE FOR THE BOF: the EMAN requirements and EMAN framework had a lot of emphasis on the "Reporting on Other Entities", typically smart PDU or PoE. Is this important? Should this be removed? Should it be addressed in a future charter?
-   This is text about "Sections 7 and 8 contain requirements specific to Energy Management.
-   Due to the nature of power supply, some monitoring and control
+   o The EMAN requirements and EMAN framework had a lot of emphasis on the "Reporting on Other Entities", typically smart PDU or PoE. Is this important?
+   Should this be removed? Should it be addressed in a future charter?
+   This is text about "Sections 7 and 8 contain requirements specific to Energy Management. Due to the nature of power supply, some monitoring and control
    functions are not conducted by interacting with the entity of
    interest but rather with other entities, for example, entities
    upstream in a power distribution tree."
 
-   Expressed differently:  Out of scope for the short term approach of EMAN framework enhancements, but might be good to call it out, EMAN doesn't include mechanisms for integrating occupancy sensors or user behavior analytics, which can be critical for optimizing HVAC, lighting, and other systems for energy efficiency. This is a key aspect for Smart Buildings and Data Centers energy efficiency metrics. 
+      Expressed differently: Out of scope for the short term approach of EMAN framework enhancements, but might be good to call it out, EMAN doesn't include mechanisms for integrating occupancy sensors or user behavior analytics, which can be critical for optimizing HVAC, lighting, and other systems for energy efficiency. This is a key aspect for Smart Buildings and Data Centers energy efficiency metrics. 
 
-- OPEN ISSUE FOR THE BOF: 
-   It's not clear whether we need new Power State (Set)? Maybe not but we need to explain 
-   the mapping of existing energy efficient features to specific Power States
-
-
+   o It's not clear whether we need new Power State (Set)? Maybe not but we need to explain the mapping of existing energy efficient features to specific Power States
 
 
 # References
 
 ## Normative References
-
-   [ANSI-TIA-1057]
-              Telecommunications Industry Association, ANSI-
-              TIA-1057-2006, "TIA Standard -- Telecommunications -- IP
-              Telephony Infrastructure -- Link Layer Discovery Protocol
-              for Media Endpoint Devices", April 2006.
 
    [IEC.61850-7-4]
               International Electrotechnical Commission, "Communication
@@ -1296,11 +1273,6 @@ informative:
               Elements in Power Control of Electronic Devices Employed
               in Office/Consumer Environments", 2004.
 
-   [IEEE-802.1AB]
-              IEEE Computer Society, "IEEE Std 802.1AB-2009 -- IEEE
-              Standard for Local and Metropolitan Area Networks --
-              Station and Media Access Control Discovery",
-              September 2009.
 
    [ATIS-0600015.03.2013]
               ATIS, "ATIS-0600015.03.2013: Energy Efficiency for
