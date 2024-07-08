@@ -1191,6 +1191,7 @@ informative:
 
 # Acknowledgments
 
+   RFC 6988 Ackowledgement. 
    The authors would like to thank Ralf Wolter for his first essay on
    this document.  Many thanks to William Mielke, John Parello,
    JinHyeock Choi, Georgios Karagiannis, and Michael Suchoff for their
@@ -1199,7 +1200,7 @@ informative:
    Resnick, Sean Turner, Stewart Bryant, and Ralph Droms for their IESG
    reviews.  Finally, special thanks to the document shepherd, Nevil
    Brownlee, and to the EMAN working group chairs: Nevil Brownlee and
-   Bruce Nordman.
+   Bruce Nordman. 
    
 # Open Issues for the Creation of this Draft Version 00 (section to be removed)
 
