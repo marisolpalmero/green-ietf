@@ -1279,6 +1279,10 @@ informative:
    for better Energy Efficiency Management. Not sure whether framework-related 
    requirements should be covered here. 
 
+   o There is a need to reflect component on/off frequency capacity (in YANG) to avoid too intensive power on/off.
+
+   o There is a need to support a description of the different nature of the sources of the energy used (mix). It should be flexible are the types of sources migh augment in the future.
+
 
 # References
 
