@@ -1231,7 +1231,7 @@ informative:
    Will they/How can they benefit of the GREEN works ?
 
    o Battery use cases migh be different 10 years after. Should it be 
-   addressed in a future charter? So far the decision is no
+   addressed in a future charter? So far the decision is no. Nevertheless it might be generalized to cover backup sources of energy caps and use.
 
    o Do we need to keep a reference to the MIB object entPhysicalUUID 
    (in section 4.4 from ENTITY-MIB v4) in case of legacy device (MIB)? 
