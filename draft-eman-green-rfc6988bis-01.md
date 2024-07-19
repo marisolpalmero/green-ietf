@@ -23,7 +23,7 @@ author:
     email: bill.wu@huawei.com
   -
     fullname: Marisol Palmero
-    org: Cisco
+    org: Cisco Systems, Inc.
     email: mpalmero@cisco.com
   -
     fullname: Emile Stephan

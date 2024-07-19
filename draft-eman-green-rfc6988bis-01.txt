@@ -6,7 +6,7 @@ green                                                          B. Claise
 Internet-Draft                                                     Q. Wu
 Intended status: Informational                                    Huawei
 Expires: 20 January 2025                                      M. Palmero
-                                                                   Cisco
+                                                     Cisco Systems, Inc.
                                                               E. Stephan
                                                                   Orange
                                                             19 July 2024
@@ -1946,7 +1946,7 @@ Authors' Addresses
 
 
    Marisol Palmero
-   Cisco
+   Cisco Systems, Inc.
    Email: mpalmero@cisco.com
 
 
