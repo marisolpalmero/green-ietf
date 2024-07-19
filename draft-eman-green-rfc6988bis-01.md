@@ -62,8 +62,8 @@ informative:
    unctions, monitoring functions as well as control functions.
    Discovery functions include identifying energy-managed network, devices 
    and their components, discovery of inventory of power components 
-   capabilities, optimization control capabilities, nominal condition use. M
-   onitoring functions include monitoring their Power States, Power Attributes, 
+   capabilities, optimization control capabilities, nominal condition use. 
+   Monitoring functions include monitoring their Power States, Power Attributes, 
    energy consumption, network performance, energy efficiency metrics.  Control 
    functions include such functions as controlling energy saving and optimization 
    functions and Power State of energy-managed devices and their components.
@@ -112,12 +112,12 @@ informative:
 
       * LLDP MIB module and LLDP MED MIB module
    
-   Due to some limitations regarding Writeable MIB module, one IESG statement published in 
-   2014 encourages the use the NETCONF/YANG standards for configuration. From the above YANG modules 
-   list, 3 MIB    modules (Entity MIB module, Entity Sensor MIB module, Entity State MIB module) have 
-   been converted into the "YANG Data Model for Hardware Management" {?RFC8348}}.
+   Due to limitations regarding Writeable MIB module, one IESG statement published in 
+   2014 encourages the use the NETCONF/YANG standards for configuration. Based on the YANG modules 
+   developments, three MIB  modules (Entity MIB module, Entity Sensor MIB module, Entity State MIB
+   module) have been converted into the "YANG Data Model for Hardware Management" {?RFC8348}}.
 
-   However, the Power and Energy Monitoring and Control MIB modules have not been converted yet into 
+   However, Power and Energy Monitoring and Control MIB modules has not been converted yet into 
    YANG modules. 
 
    Eleven years after the EMAN requirements RFC 6988 publication, this document re-evaluates the 
