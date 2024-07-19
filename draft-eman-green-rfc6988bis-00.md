@@ -235,13 +235,21 @@ informative:
    "energy" and "power".  These terms are generic and are used in
    generated terms such as "energy-saving", "low-power", etc.
  
-   Embedded carbon
-      The amount of GHG emissions associated with upstream (before operation) 
-      stages of a product’s life
+   Embedded carbon (or embodied carbon)
+   
+      The total amount of greenhouse gas emissions, measured in tonnes 
+      of CO2 equivalent (tCO2e), associated with the entire lifecycle 
+      of a product or material, from raw material extraction through 
+      manufacturing, transportation, use, and end-of-life disposal or 
+      recycling.
+ 
+   Embodied energy
 
-   Embedded carbon
-      Energy in TCO2e unit (also known as Embodied Energy) associated with the 
-      upstream (before operation) stages of a product's life.
+      The total amount of energy consumed in all processes associated 
+      with the production of a building material or product, from the 
+      extraction and processing of raw materials, through manufacturing, 
+      transportation, and installation, to the end of its useful life, 
+      including disposal or recycling.
        
    Energy
 
