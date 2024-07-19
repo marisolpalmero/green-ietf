@@ -1279,9 +1279,22 @@ informative:
    for better Energy Efficiency Management. Not sure whether framework-related 
    requirements should be covered here. 
 
-   o There is a need to reflect component on/off frequency capacity (in YANG) to avoid too intensive power on/off.
+   o There is a need to reflect component on/off frequency capacity (in YANG) 
+   to avoid too intensive power on/off.
 
-   o There is a need to support a description of the different nature of the sources of the energy used (mix). It should be flexible are the types of sources migh augment in the future.
+   o There is a need to support a description of the different nature of the 
+   sources of the energy used (mix). It should be flexible are the types of 
+   sources migh augment in the future.
+
+   o Company's SBTi approved decarbonization plan and how to link it to 
+   GREEN WG scope, short/mid vs long term.
+ 
+   The Science Based Targets initiative(SBTi)[https://sciencebasedtargets.org] 
+   defines and promotes best practice in science-based target setting. Offering 
+   a range of target-setting resources and guidance, the SBTi independently 
+   assesses and approves companies’ targets in line with its strict criteria.
+ 
+   Open issue, https://github.com/marisolpalmero/GREEN-bof/issues/88
 
 
 # References
