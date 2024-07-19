@@ -1259,6 +1259,8 @@ informative:
 
    o There are currently two "Embedded Carbon" definitions. Pick one.
 
+   o basic (scalar) units are not enough to describe Power Data Unit caps and/or output. We need a more complex structure (which might already exist ?) to cover meanings (that I copied in the chats) like CO2 footprint, clean energy, mix, renewable. as an example, this should help to describe reduction of energy consumption and the increase of renewable energy consumption
+
    o Enhance EMAN framework, to support a more robust and comprehensive 
    Energy Efficiency Strategy. Let devices report whatever they can using 
    existing interfaces, without waiting until they implement new capabilities 
