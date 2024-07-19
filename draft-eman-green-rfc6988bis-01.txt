@@ -5,7 +5,9 @@
 green                                                          B. Claise
 Internet-Draft                                                     Q. Wu
 Intended status: Informational                                    Huawei
-Expires: 20 January 2025                                      E. Stephan
+Expires: 20 January 2025                                      M. Palmero
+                                                                   Cisco
+                                                              E. Stephan
                                                                   Orange
                                                             19 July 2024
 
@@ -45,10 +47,8 @@ Status of This Memo
    This Internet-Draft is submitted in full conformance with the
    provisions of BCP 78 and BCP 79.
 
-   Internet-Drafts are working documents of the Internet Engineering
-   Task Force (IETF).  Note that other groups may also distribute
-   working documents as Internet-Drafts.  The list of current Internet-
-   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+
 
 
 
@@ -57,6 +57,11 @@ Claise, et al.           Expires 20 January 2025                [Page 1]
 
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
 
    Internet-Drafts are draft documents valid for a maximum of six months
    and may be updated, replaced, or obsoleted by other documents at any
@@ -101,11 +106,6 @@ Table of Contents
      4.3.  Persistence of Identifiers  . . . . . . . . . . . . . . .  15
      4.4.  Change of Identifiers . . . . . . . . . . . . . . . . . .  15
      4.5.  Using Entity Identifiers of Existing YANG Modules . . . .  15
-   5.  Information on Entities . . . . . . . . . . . . . . . . . . .  15
-     5.1.  General Information on Entities . . . . . . . . . . . . .  16
-       5.1.1.  Type of Entity  . . . . . . . . . . . . . . . . . . .  16
-       5.1.2.  Context of an Entity  . . . . . . . . . . . . . . . .  16
-       5.1.3.  Significance of Entities  . . . . . . . . . . . . . .  16
 
 
 
@@ -114,6 +114,11 @@ Claise, et al.           Expires 20 January 2025                [Page 2]
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
+   5.  Information on Entities . . . . . . . . . . . . . . . . . . .  15
+     5.1.  General Information on Entities . . . . . . . . . . . . .  16
+       5.1.1.  Type of Entity  . . . . . . . . . . . . . . . . . . .  16
+       5.1.2.  Context of an Entity  . . . . . . . . . . . . . . . .  16
+       5.1.3.  Significance of Entities  . . . . . . . . . . . . . .  16
        5.1.4.  Power Priority  . . . . . . . . . . . . . . . . . . .  16
        5.1.5.  Grouping of Entities  . . . . . . . . . . . . . . . .  16
      5.2.  Power Interfaces  . . . . . . . . . . . . . . . . . . . .  16
@@ -157,11 +162,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
      5.7.  Time Series of Measured Values  . . . . . . . . . . . . .  24
        5.7.1.  Time Series of Energy Values  . . . . . . . . . . . .  25
        5.7.2.  Time Series Interval Types  . . . . . . . . . . . . .  25
-       5.7.3.  Time Series Storage Capacity  . . . . . . . . . . . .  25
-   6.  Reporting on Lifecycle Management . . . . . . . . . . . . . .  25
-     6.1.  Carbon Reporting  . . . . . . . . . . . . . . . . . . . .  25
-     6.2.  Energy Mix  . . . . . . . . . . . . . . . . . . . . . . .  26
-   7.  Control of Entities . . . . . . . . . . . . . . . . . . . . .  26
 
 
 
@@ -170,6 +170,11 @@ Claise, et al.           Expires 20 January 2025                [Page 3]
 Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
 
+       5.7.3.  Time Series Storage Capacity  . . . . . . . . . . . .  25
+   6.  Reporting on Lifecycle Management . . . . . . . . . . . . . .  25
+     6.1.  Carbon Reporting  . . . . . . . . . . . . . . . . . . . .  25
+     6.2.  Energy Mix  . . . . . . . . . . . . . . . . . . . . . . .  26
+   7.  Control of Entities . . . . . . . . . . . . . . . . . . . . .  26
      7.1.  Provisioning Power States . . . . . . . . . . . . . . . .  26
      7.2.  Controlling Power SupplyProvisioning  . . . . . . . . . .  26
      7.3.  Controlling Energy Saving and Optimization
@@ -208,11 +213,6 @@ Internet-Draft  Requirements for Energy Efficiency Manag       July 2024
 
    The EMAN (Energy MANagement) working group, created in 2010 and now
    concluded, has produced multiples RFCs
-
-
-
-
-
 
 
 
@@ -1945,14 +1945,14 @@ Authors' Addresses
    Email: bill.wu@huawei.com
 
 
+   Marisol Palmero
+   Cisco
+   Email: mpalmero@cisco.com
+
+
    Emile Stephan
    Orange
    Email: emile.stephan@orange.com
-
-
-
-
-
 
 
 
