@@ -1245,7 +1245,7 @@ informative:
 
    o Battery use cases migh be different 10 years after. Should it be 
    addressed in a future charter? So far the decision is no. Nevertheless 
-   it might be generalized to cover backup sources of energy caps and use.
+   it might be generalized to cover backup sources of energy capabilities and use.
 
    o Do we need to keep a reference to the MIB object entPhysicalUUID 
    (in section 4.4 from ENTITY-MIB v4) in case of legacy device (MIB)? 
@@ -1271,10 +1271,10 @@ informative:
    we need to explain the mapping of existing energy efficient features to 
    specific Power States.
 
-   o basic (scalar) units are not enough to describe Power Data Unit caps 
+   o basic (scalar) units are not enough to describe Power Data Unit capabilities 
    and/or output. We need a more complex structure (which might already exist?) 
-   to cover meanings (that I copied in the chats) like CO2 footprint, clean 
-   energy, mix, renewable. as an example, this should help to describe 
+   to cover and combine meanings (that I copied from the chats) like CO2 footprint, 
+   clean energy, mix, renewable. as an example, this should help to describe 
    reduction of energy consumption and the increase of renewable energy consumption
 
    o Enhance EMAN framework, to support a more robust and comprehensive 
@@ -1297,7 +1297,7 @@ informative:
 
    o There is a need to support a description of the different nature of the 
    sources of the energy used (mix). It should be flexible are the types of sources 
-   migh augment in the future.
+   might augment in the future.
 
 
 # References
